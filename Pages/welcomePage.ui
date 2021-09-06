@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="backgroundwidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>901</width>
+     <height>651</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#widget{ 
+background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));}</string>
+   </property>
+   <widget class="QLabel" name="backgroundPhoto">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-30</y>
+      <width>900</width>
+      <height>700</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>background.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="aboutProjectButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>310</y>
+      <width>231</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 15px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+
+	font: 75 22pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
+}
+
+QPushButton:hover{
+	background-color: rgb(54, 57, 138);
+}
+QPushButton:pressed{
+	background-color: rgb(91, 96, 230);
+}</string>
+    </property>
+    <property name="text">
+     <string>ABOUT THE
+PROJECT</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="howItWorksButton">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>310</y>
+      <width>231</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 15px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+
+	font: 75 22pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+}
+
+QPushButton:hover{
+	background-color: rgb(54, 57, 138);
+}
+QPushButton:pressed{
+	background-color: rgb(91, 96, 230);
+}</string>
+    </property>
+    <property name="text">
+     <string>HOW IT
+WORKS?</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="startAnalysisButton">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>310</y>
+      <width>231</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 15px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+
+	font: 75 22pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+}
+
+QPushButton:hover{
+	background-color: rgb(54, 57, 138);
+}
+QPushButton:pressed{
+	background-color: rgb(91, 96, 230);
+}</string>
+    </property>
+    <property name="text">
+     <string>START
+ANALYSIS</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="FACText">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>70</y>
+      <width>501</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 35pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+
+</string>
+    </property>
+    <property name="text">
+     <string>Football Action
+Classification</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="buttonBGPhoto.qrc"/>
+ </resources>
+ <connections/>
+</ui>

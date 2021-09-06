@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>stadiumPhoto.jpg</file>
+  </qresource>
+</RCC>

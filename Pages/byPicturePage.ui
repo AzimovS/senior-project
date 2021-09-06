@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="backgroundwidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>901</width>
+     <height>651</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#widget{ 
+background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));}</string>
+   </property>
+   <widget class="QLabel" name="backgroundPhoto">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-30</y>
+      <width>900</width>
+      <height>700</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::WinPanel</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>background.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="resNetButton">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>440</y>
+      <width>141</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 15px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+
+	font: 75 14pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+}
+
+QPushButton:hover{
+	background-color: rgb(54, 57, 138);
+}
+QPushButton:pressed{
+	background-color: rgb(91, 96, 230);
+}</string>
+    </property>
+    <property name="text">
+     <string>ResNet</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="FACButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>271</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 15px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+
+	font: 75 22pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+}
+
+QPushButton:hover{
+	background-color: rgb(54, 57, 138);
+}
+QPushButton:pressed{
+	background-color: rgb(91, 96, 230);
+}</string>
+    </property>
+    <property name="text">
+     <string>Football Action
+Classification</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="howItWorksText">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>180</y>
+      <width>371</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
+    </property>
+    <property name="text">
+     <string>In this page you can upload a photo 
+and we predict the next action 
+of the player with the ball.
+Now upload a photo:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="howItWorksHeadText">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>130</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 18pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
+text-decoration: underline;</string>
+    </property>
+    <property name="text">
+     <string>Prediction By Picture</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="alexNetButton">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>440</y>
+      <width>141</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 15px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+
+	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+}
+
+QPushButton:hover{
+	background-color: rgb(54, 57, 138);
+}
+QPushButton:pressed{
+	background-color: rgb(91, 96, 230);
+}</string>
+    </property>
+    <property name="text">
+     <string>AlexNet</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>310</y>
+      <width>331</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="browseButton">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>350</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 15px;
+
+	background-color: rgb(255, 255, 255);
+
+	font: 75 14pt; color: rgb(0, 0, 0);
+}
+
+QPushButton:hover{
+	background-color: rgb(85, 170, 255);
+}
+QPushButton:pressed{
+	background-color: rgb(91, 96, 230);
+}</string>
+    </property>
+    <property name="text">
+     <string>Browse</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="howItWorksHeadText_2">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>390</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 18pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
+text-decoration: underline;</string>
+    </property>
+    <property name="text">
+     <string>Choose model to use:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="howItWorksHeadText_3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>540</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 18pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
+text-decoration: underline;</string>
+    </property>
+    <property name="text">
+     <string>Predicted Action:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="predictionGiver">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>590</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>140</y>
+      <width>441</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>ATPButtonPhoto.jpeg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="goBackButton">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>30</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 15px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+
+	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+}
+
+QPushButton:hover{
+	background-color: rgb(54, 57, 138);
+}
+QPushButton:pressed{
+	background-color: rgb(91, 96, 230);
+}</string>
+    </property>
+    <property name="text">
+     <string>GoBack</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="background.qrc"/>
+ </resources>
+ <connections/>
+</ui>
