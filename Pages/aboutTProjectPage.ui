@@ -42,7 +42,7 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>background.jpg</pixmap>
+     <pixmap>../Media/background.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

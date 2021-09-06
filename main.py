@@ -7,7 +7,7 @@ from PyQt5.QtGui import QPixmap
 class WelcomePage(QDialog):
     def __init__(self):
         super(WelcomePage, self).__init__()
-        loadUi("welcomePage.ui", self)
+        loadUi("Pages/welcomePage.ui", self)
         self.aboutProjectButton.clicked.connect(self.gotoATPPage)
         self.howItWorksButton.clicked.connect(self.gotoHIWPage)
         self.startAnalysisButton.clicked.connect(self.gotoSAPage)
@@ -33,7 +33,7 @@ class WelcomePage(QDialog):
 class AboutProjectPage(QDialog):
     def __init__(self):
         super(AboutProjectPage, self).__init__()
-        loadUi("aboutTProjectPage.ui", self)
+        loadUi("Pages/aboutTProjectPage.ui", self)
         self.howItWorksButton.clicked.connect(self.gotoHIWPage)
         self.FACButton.clicked.connect(self.goBack)
 
@@ -50,7 +50,7 @@ class AboutProjectPage(QDialog):
 class HowItWorksPage(QDialog):
     def __init__(self):
         super(HowItWorksPage, self).__init__()
-        loadUi("howItWorksPage.ui", self)
+        loadUi("Pages/howItWorksPage.ui", self)
         self.FACButton.clicked.connect(self.goBack)
         self.startAnalysisButton.clicked.connect(self.gotoSAPage)
 
@@ -67,7 +67,7 @@ class HowItWorksPage(QDialog):
 class StartAnalysisPage(QDialog):
     def __init__(self):
         super(StartAnalysisPage, self).__init__()
-        loadUi("startAnalysisPage.ui", self)
+        loadUi("Pages/startAnalysisPage.ui", self)
         self.FACButton.clicked.connect(self.goBack)
         self.browseButton.clicked.connect(self.browsefiles)
         self.byPictureButton.clicked.connect(self.gotoByPicturePage)
@@ -96,7 +96,7 @@ class StartAnalysisPage(QDialog):
 class ByPicturePage(QDialog):
     def __init__(self):
         super(ByPicturePage, self).__init__()
-        loadUi("byPicturePage.ui", self)
+        loadUi("Pages/byPicturePage.ui", self)
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoSAPage)
         self.browseButton.clicked.connect(self.browsefiles)
@@ -118,7 +118,7 @@ class ByPicturePage(QDialog):
 class SeeVisualsPage(QDialog):
     def __init__(self):
         super(SeeVisualsPage, self).__init__()
-        loadUi("seeVisualsPage.ui", self)
+        loadUi("Pages/seeVisualsPage.ui", self)
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoSAPage)
 

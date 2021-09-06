@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"C:\Users\bexma\PycharmProjects\guiApp\venv"
+$VIRTUAL_ENV = r"C:\Users\bexma\PycharmProjects\SeniorProjInterface"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

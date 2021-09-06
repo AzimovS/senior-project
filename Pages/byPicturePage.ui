@@ -45,7 +45,7 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>background.jpg</pixmap>
+     <pixmap>../Media/background.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -277,7 +277,7 @@ text-decoration: underline;</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>ATPButtonPhoto.jpeg</pixmap>
+     <pixmap>../Media/ATPButtonPhoto.jpeg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
