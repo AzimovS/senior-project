@@ -2,10 +2,11 @@ import numpy as np
 import pandas as pd
 import os
 import cv2
+import tqdm
 
 
 def create_image(frame_num, action_num, videofile_name, dir_path):
-    dest_dir = 'Imagenet'
+    dest_dir = 'Imagenet_processed_1409_firstimg'
     frame_num = int(float(frame_num))
     action_num = str(int(float(action_num)))
 
@@ -22,10 +23,28 @@ def create_image(frame_num, action_num, videofile_name, dir_path):
 
 
 def create_imagenet_dataset(dir_path):
+    first_image = True
     for file in os.listdir(dir_path):
         if file.endswith("LogoView.npy"):
             data = np.load(dir_path + '/' + file)
+            prev_frame = None
+            prev_action = None
+            prev_videofile_name = None
             for d in data:
-                create_image(d[0], d[1], file[:-4], dir_path)
+                if first_image and prev_frame is None:
+                    prev_frame = d[0]
+                    prev_action = d[1]
+                    prev_videofile_name = file[:-4]
+                elif first_image and prev_action == d[1]:
+                    continue
+                elif first_image and prev_action != d[1]:
+                    create_image(prev_frame, prev_action, prev_videofile_name, dir_path)
+                    prev_frame = d[0]
+                    prev_action = d[1]
+                    prev_videofile_name = file[:-4]
+                else:
+                    create_image(d[0], d[1], file[:-4], dir_path)
 
 
+
+create_imagenet_dataset('data')
