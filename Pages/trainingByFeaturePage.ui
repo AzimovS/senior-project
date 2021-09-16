@@ -26,7 +26,7 @@
     <string notr="true">QWidget#widget{ 
 background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));}</string>
    </property>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="backgroundPhoto">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -48,24 +48,21 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="aboutProjectButton">
+   <widget class="QPushButton" name="extraTreeButton">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>550</y>
+      <x>170</x>
+      <y>250</y>
       <width>141</width>
-      <height>81</height>
+      <height>91</height>
      </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
 	border-radius: 15px;
 	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
 
-	font: 75 12pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
+	font: 75 14pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
 }
 
 QPushButton:hover{
@@ -76,56 +73,20 @@ QPushButton:pressed{
 }</string>
     </property>
     <property name="text">
-     <string>ABOUT THE
-PROJECT</string>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>16</width>
-      <height>16</height>
-     </size>
-    </property>
-    <property name="default">
-     <bool>false</bool>
+     <string>ExtraTree</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="howItWorksButton">
+   <widget class="QPushButton" name="FACButton">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>550</y>
-      <width>141</width>
-      <height>81</height>
+      <x>10</x>
+      <y>10</y>
+      <width>271</width>
+      <height>101</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
-
-	font: 75 12pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
-}
-
-QPushButton:hover{
-	background-color: rgb(54, 57, 138);
-}
-QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
-}</string>
-    </property>
-    <property name="text">
-     <string>HOW IT
-WORKS?</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="startTrainingButton">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>310</y>
-      <width>231</width>
-      <height>141</height>
-     </rect>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -141,41 +102,52 @@ QPushButton:hover{
 QPushButton:pressed{
 	background-color: rgb(91, 96, 230);
 }</string>
-    </property>
-    <property name="text">
-     <string>START
-TRAINING</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="FACText">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>70</y>
-      <width>501</width>
-      <height>211</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 75 35pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
-
-</string>
     </property>
     <property name="text">
      <string>Football Action
 Classification</string>
     </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
    </widget>
-   <widget class="QPushButton" name="visualizationButton">
+   <widget class="QLabel" name="howItWorksText">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>310</y>
-      <width>231</width>
-      <height>141</height>
+      <x>320</x>
+      <y>170</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
+    </property>
+    <property name="text">
+     <string>Please choose a classifier</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="howItWorksHeadText">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>130</y>
+      <width>361</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 18pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
+text-decoration: underline;</string>
+    </property>
+    <property name="text">
+     <string>TRAINING BY FEATURE</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="kNeighborsButton">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>250</y>
+      <width>141</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -183,7 +155,7 @@ Classification</string>
 	border-radius: 15px;
 	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
 
-	font: 75 22pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
 }
 
 QPushButton:hover{
@@ -194,16 +166,16 @@ QPushButton:pressed{
 }</string>
     </property>
     <property name="text">
-     <string>VISUALS</string>
+     <string>KNeighbors</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="predictionButton">
+   <widget class="QPushButton" name="decisionTreeButton">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>310</y>
-      <width>231</width>
-      <height>141</height>
+      <x>600</x>
+      <y>250</y>
+      <width>141</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -211,7 +183,7 @@ QPushButton:pressed{
 	border-radius: 15px;
 	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
 
-	font: 75 22pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
 }
 
 QPushButton:hover{
@@ -222,13 +194,88 @@ QPushButton:pressed{
 }</string>
     </property>
     <property name="text">
-     <string>PREDICT</string>
+     <string>Decision
+Tree</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="predictButton">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>520</y>
+      <width>141</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 15px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+
+	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+}
+
+QPushButton:hover{
+	background-color: rgb(54, 57, 138);
+}
+QPushButton:pressed{
+	background-color: rgb(91, 96, 230);
+}</string>
+    </property>
+    <property name="text">
+     <string>Predict</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="howItWorksText_2">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>410</y>
+      <width>321</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 18pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
+    </property>
+    <property name="text">
+     <string>Parameters:
+Text size:
+Random State:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="goBackButton">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>40</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 15px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+
+	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+}
+
+QPushButton:hover{
+	background-color: rgb(54, 57, 138);
+}
+QPushButton:pressed{
+	background-color: rgb(91, 96, 230);
+}</string>
+    </property>
+    <property name="text">
+     <string>GoBack</string>
     </property>
    </widget>
   </widget>
  </widget>
  <resources>
-  <include location="buttonBGPhoto.qrc"/>
+  <include location="background.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -8,9 +8,11 @@ class WelcomePage(QDialog):
     def __init__(self):
         super(WelcomePage, self).__init__()
         loadUi("Pages/welcomePage.ui", self)
-        self.aboutProjectButton.clicked.connect(self.gotoATPPage)
-        self.howItWorksButton.clicked.connect(self.gotoHIWPage)
-        self.startAnalysisButton.clicked.connect(self.gotoSAPage)
+        self.aboutProjectButton.clicked.connect(self.gotoATPPage)  #go to About The Project page
+        self.howItWorksButton.clicked.connect(self.gotoHIWPage)  #go to How It Works Page
+        self.startTrainingButton.clicked.connect(self.gotoUTFPage)  #go to Upload Training File Page
+        self.visualizationButton.clicked.connect(self.gotoUVFPage)  #go to Upload Visualization File Page
+        self.predictionButton.clicked.connect(self.gotoPredictPage)  #go to prediction page
 
     #when about the project button is pressed
     def gotoATPPage(self):
@@ -24,11 +26,24 @@ class WelcomePage(QDialog):
         widget.addWidget(HIWPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
-    #whem start analysis button is pressed
-    def gotoSAPage(self):
-        SAPage = StartAnalysisPage()
-        widget.addWidget(SAPage)
+
+    def gotoUTFPage(self):
+        UTFPage = uploadTrainingFilePage()
+        widget.addWidget(UTFPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+    def gotoPredictPage(self):
+        gotoPredictionPage = predictPage()
+        widget.addWidget(gotoPredictionPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+    def gotoUVFPage(self):
+        UVFPage = uploadVisualizationFilePage()
+        widget.addWidget(UVFPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
 
 class AboutProjectPage(QDialog):
     def __init__(self):
@@ -52,26 +67,22 @@ class HowItWorksPage(QDialog):
         super(HowItWorksPage, self).__init__()
         loadUi("Pages/howItWorksPage.ui", self)
         self.FACButton.clicked.connect(self.goBack)
-        self.startAnalysisButton.clicked.connect(self.gotoSAPage)
+
 
     def goBack(self):
         gotoMainPage = WelcomePage()
         widget.addWidget(gotoMainPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
-    def gotoSAPage(self):
-        SAPage = StartAnalysisPage()
-        widget.addWidget(SAPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
 
-class StartAnalysisPage(QDialog):
+class uploadTrainingFilePage(QDialog):
     def __init__(self):
-        super(StartAnalysisPage, self).__init__()
-        loadUi("Pages/startAnalysisPage.ui", self)
+        super(uploadTrainingFilePage, self).__init__()
+        loadUi("Pages/uploadTrainingFilePage.ui", self)
         self.FACButton.clicked.connect(self.goBack)
         self.browseButton.clicked.connect(self.browsefiles)
-        self.byPictureButton.clicked.connect(self.gotoByPicturePage)
-        self.seeVisualsButton.clicked.connect(self.gotoSVPage)
+        self.byPictureButton.clicked.connect(self.gotoTrainingByPicturePage)
+        self.byFeatureButton.clicked.connect(self.gotoTrainingByFeaturePage)
 
     def browsefiles(self):
         fname = QFileDialog.getOpenFileName(self, 'Open file','C:\Desktop')
@@ -82,51 +93,112 @@ class StartAnalysisPage(QDialog):
         widget.addWidget(gotoMainPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
-    def gotoByPicturePage(self):
-        gotoBPPage = ByPicturePage()
-        widget.addWidget(gotoBPPage)
+    def gotoTrainingByPicturePage(self):
+        gotoTBPPage = trainingByPicturePage()
+        widget.addWidget(gotoTBPPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
-    def gotoSVPage(self):
-        gotoSVPage = SeeVisualsPage()
+    def gotoTrainingByFeaturePage(self):
+        gotoTBFPage = trainingByFeaturePage()
+        widget.addWidget(gotoTBFPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+class trainingByPicturePage(QDialog):
+    def __init__(self):
+        super(trainingByPicturePage, self).__init__()
+        loadUi("Pages/trainingByPicturePage.ui", self)
+        self.FACButton.clicked.connect(self.goBack)
+        self.goBackButton.clicked.connect(self.gotoUTFPage)
+        #self.extraTreeButton.clicked.connect(self.)
+        #self.kNeighborsButton.clicked.connect(self.)
+        #self.decisionTreeButton.clicked.connect(self.)
+        #self.predictButton.clicked.connect(self.)
+
+    def goBack(self):
+        gotoMainPage = WelcomePage()
+        widget.addWidget(gotoMainPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def gotoUTFPage(self):
+        UTFPage = uploadTrainingFilePage()
+        widget.addWidget(UTFPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+class trainingByFeaturePage(QDialog):
+    def __init__(self):
+        super(trainingByFeaturePage, self).__init__()
+        loadUi("Pages/trainingByFeaturePage.ui", self)
+        self.FACButton.clicked.connect(self.goBack)
+        self.goBackButton.clicked.connect(self.gotoUTFPage)
+        #self.extraTreeButton.clicked.connect(self.)
+        #self.kNeighborsButton.clicked.connect(self.)
+        #self.decisionTreeButton.clicked.connect(self.)
+        #self.predictButton.clicked.connect(self.)
+
+    def goBack(self):
+        gotoMainPage = WelcomePage()
+        widget.addWidget(gotoMainPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def gotoUTFPage(self):
+        UTFPage = uploadTrainingFilePage()
+        widget.addWidget(UTFPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+class predictPage(QDialog):
+    def __init__(self):
+        super(predictPage, self).__init__()
+        loadUi("Pages/predictPage.ui", self)
+        self.FACButton.clicked.connect(self.goBack)
+        self.browseButton.clicked.connect(self.browsefiles)
+
+    def browsefiles(self):
+        fname = QFileDialog.getOpenFileName(self, 'Open file','C:\Desktop')
+        self.lineEdit.setText(fname[0])
+
+    def goBack(self):
+        gotoMainPage = WelcomePage()
+        widget.addWidget(gotoMainPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+class uploadVisualizationFilePage(QDialog):
+    def __init__(self):
+        super(uploadVisualizationFilePage, self).__init__()
+        loadUi("Pages/uploadVisualizationFilePage.ui", self)
+        self.FACButton.clicked.connect(self.goBack)
+        self.browseButton.clicked.connect(self.browsefiles)
+        self.nextButton.clicked.connect(self.gotoSeeVisualsPage)
+
+    def browsefiles(self):
+        fname = QFileDialog.getOpenFileName(self, 'Open file','C:\Desktop')
+        self.lineEdit.setText(fname[0])
+
+    def goBack(self):
+        gotoMainPage = WelcomePage()
+        widget.addWidget(gotoMainPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def gotoSeeVisualsPage(self):
+        gotoSVPage = seeVisualsPage()
         widget.addWidget(gotoSVPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
-class ByPicturePage(QDialog):
+class seeVisualsPage(QDialog):
     def __init__(self):
-        super(ByPicturePage, self).__init__()
-        loadUi("Pages/byPicturePage.ui", self)
-        self.FACButton.clicked.connect(self.goBack)
-        self.goBackButton.clicked.connect(self.gotoSAPage)
-        self.browseButton.clicked.connect(self.browsefiles)
-
-    def gotoSAPage(self):
-        SAPage = StartAnalysisPage()
-        widget.addWidget(SAPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
-
-    def browsefiles(self):
-        fname = QFileDialog.getOpenFileName(self, 'Open file','C:\Desktop')
-        self.lineEdit.setText(fname[0])
-
-    def goBack(self):
-        gotoMainPage = WelcomePage()
-        widget.addWidget(gotoMainPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
-
-class SeeVisualsPage(QDialog):
-    def __init__(self):
-        super(SeeVisualsPage, self).__init__()
+        super(seeVisualsPage, self).__init__()
         loadUi("Pages/seeVisualsPage.ui", self)
         self.FACButton.clicked.connect(self.goBack)
-        self.goBackButton.clicked.connect(self.gotoSAPage)
+        self.goBackButton.clicked.connect(self.gotoUVFPage)
 
 
-    def gotoSAPage(self):
-        SAPage = StartAnalysisPage()
-        widget.addWidget(SAPage)
+    def gotoUVFPage(self):
+        UVFPage = uploadVisualizationFilePage()
+        widget.addWidget(UVFPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+
 
     def goBack(self):
         gotoMainPage = WelcomePage()
