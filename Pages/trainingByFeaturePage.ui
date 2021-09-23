@@ -62,7 +62,7 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
 	border-radius: 15px;
 	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
 
-	font: 75 14pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 75 14pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
 }
 
 QPushButton:hover{
@@ -226,24 +226,6 @@ QPushButton:pressed{
      <string>Predict</string>
     </property>
    </widget>
-   <widget class="QLabel" name="howItWorksText_2">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>410</y>
-      <width>321</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 75 18pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
-    </property>
-    <property name="text">
-     <string>Parameters:
-Text size:
-Random State:</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="goBackButton">
     <property name="geometry">
      <rect>
@@ -272,10 +254,40 @@ QPushButton:pressed{
      <string>GoBack</string>
     </property>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>390</y>
+      <width>331</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="FirstParameterText">
+       <property name="text">
+        <string>Random State</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="secondParameterText">
+       <property name="text">
+        <string>N estimators</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="FirstParameterEdit"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="secondParameterEdit"/>
+     </item>
+    </layout>
+   </widget>
   </widget>
  </widget>
- <resources>
-  <include location="background.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

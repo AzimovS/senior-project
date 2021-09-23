@@ -4,6 +4,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLabel, QFileDialog
 from PyQt5.QtGui import QPixmap
 import os
+import train_features
 
 class WelcomePage(QDialog):
     def __init__(self):
@@ -102,13 +103,13 @@ class uploadTrainingFilePage(QDialog):
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def gotoTrainingByFeaturePage(self):
-        gotoTBFPage = trainingByFeaturePage()
+        gotoTBFPage = trainingByFeaturePage(self.lineEdit.text())
         widget.addWidget(gotoTBFPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
 class trainingByPicturePage(QDialog):
-    def __init__(self):
+    def __init__(self, *args):
         super(trainingByPicturePage, self).__init__()
         loadUi("Pages/trainingByPicturePage.ui", self)
         self.FACButton.clicked.connect(self.goBack)
@@ -129,14 +130,15 @@ class trainingByPicturePage(QDialog):
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 class trainingByFeaturePage(QDialog):
-    def __init__(self):
+    def __init__(self, *args):
         super(trainingByFeaturePage, self).__init__()
+        self.data_path = args[-1]
         loadUi("Pages/trainingByFeaturePage.ui", self)
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoUTFPage)
-        #self.extraTreeButton.clicked.connect(self.)
-        #self.kNeighborsButton.clicked.connect(self.)
-        #self.decisionTreeButton.clicked.connect(self.)
+        self.extraTreeButton.clicked.connect(self.extraTreeTrainPrepare)
+        self.kNeighborsButton.clicked.connect(self.kNeighborsPrepare)
+        self.decisionTreeButton.clicked.connect(self.decisionTreePrepare)
         #self.predictButton.clicked.connect(self.)
 
     def goBack(self):
@@ -148,6 +150,59 @@ class trainingByFeaturePage(QDialog):
         UTFPage = uploadTrainingFilePage()
         widget.addWidget(UTFPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def addBorders(self, button):
+        button.setStyleSheet("QPushButton {\n"
+                                           "    border-radius: 15px;\n"
+                                           "    background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768,         y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));\n"
+                                           "\n"
+                                           "    font: 75 14pt \"Comic Sans MS\"; color: rgb(110, 164, 190);\n"
+                                           "    border-color: white;\n"
+                                           "    border: 3px solid;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover{\n"
+                                           "    background-color: rgb(54, 57, 138);\n"
+                                           "}\n"
+                                           "QPushButton:pressed{\n"
+                                           "    background-color: rgb(91, 96, 230);\n"
+                                           "}")
+
+    def removeBorders(self, button):
+        button.setStyleSheet("QPushButton {\n"
+                                            "    border-radius: 15px;\n"
+                                            "    background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768,         y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));\n"
+                                            "\n"
+                                            "    font: 75 13pt \"Comic Sans MS\"; color: rgb(110, 164, 190)\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:hover{\n"
+                                            "    background-color: rgb(54, 57, 138);\n"
+                                            "}\n"
+                                            "QPushButton:pressed{\n"
+                                            "    background-color: rgb(91, 96, 230);\n"
+                                            "}")
+
+    def extraTreeTrainPrepare(self):
+        self.addBorders(self.extraTreeButton)
+        self.removeBorders(self.kNeighborsButton)
+        self.removeBorders(self.decisionTreeButton)
+
+
+    def kNeighborsPrepare(self):
+        self.addBorders(self.kNeighborsButton)
+        self.removeBorders(self.extraTreeButton)
+        self.removeBorders(self.decisionTreeButton)
+
+    def decisionTreePrepare(self):
+        self.addBorders(self.decisionTreeButton)
+        self.removeBorders(self.extraTreeButton)
+        self.removeBorders(self.kNeighborsButton)
+
+        # data = train_features.load_data(self.data_path)
+        # acc = train_features.train_features_extratrees(data)
+        # print(acc)
+
 
 class predictPage(QDialog):
     def __init__(self):
