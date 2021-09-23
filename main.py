@@ -3,6 +3,7 @@ from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLabel, QFileDialog
 from PyQt5.QtGui import QPixmap
+import os
 
 class WelcomePage(QDialog):
     def __init__(self):
@@ -85,7 +86,8 @@ class uploadTrainingFilePage(QDialog):
         self.byFeatureButton.clicked.connect(self.gotoTrainingByFeaturePage)
 
     def browsefiles(self):
-        fname = QFileDialog.getOpenFileName(self, 'Open file','C:\Desktop')
+        current_dir = os.getcwd()
+        fname = QFileDialog.getOpenFileName(self, 'Open file', current_dir)
         self.lineEdit.setText(fname[0])
 
     def goBack(self):
