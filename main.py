@@ -86,9 +86,10 @@ class uploadTrainingFilePage(QDialog):
         self.byFeatureButton.clicked.connect(self.gotoTrainingByFeaturePage)
 
     def browsefiles(self):
-        current_dir = os.getcwd()
-        fname = QFileDialog.getOpenFileName(self, 'Open file', current_dir)
-        self.lineEdit.setText(fname[0])
+        current_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+        print(current_dir)
+        fname = QFileDialog.getExistingDirectory(self, 'Select Directory', current_dir)
+        self.lineEdit.setText(fname)
 
     def goBack(self):
         gotoMainPage = WelcomePage()
