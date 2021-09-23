@@ -21,7 +21,7 @@ def train_features_extratrees(pd_data, **kwargs):
         clf = DecisionTreeClassifier(random_state=kwargs['first'])
 
     clf.fit(X_train, y_train)
-    return round(clf.score(X_test, y_test), 4)
+    return round(clf.score(X_test, y_test), 5)
 
 
 def load_data(dir_path):
