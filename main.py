@@ -134,6 +134,11 @@ class trainingByFeaturePage(QDialog):
         super(trainingByFeaturePage, self).__init__()
         self.data_path = args[-1]
         loadUi("Pages/trainingByFeaturePage.ui", self)
+        self.firstParameterText.hide()
+        self.firstParameterEdit.hide()
+        self.secondParameterText.hide()
+        self.secondParameterEdit.hide()
+
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoUTFPage)
         self.extraTreeButton.clicked.connect(self.extraTreeTrainPrepare)
@@ -188,16 +193,45 @@ class trainingByFeaturePage(QDialog):
         self.removeBorders(self.kNeighborsButton)
         self.removeBorders(self.decisionTreeButton)
 
+        self.firstParameterText.setText("Random State: ")
+        self.firstParameterText.show()
+
+        self.firstParameterEdit.setText('0')
+        self.firstParameterEdit.show()
+
+        self.secondParameterText.setText("N Estimators: ")
+        self.secondParameterText.show()
+
+        self.secondParameterEdit.setText('100')
+        self.secondParameterEdit.show()
 
     def kNeighborsPrepare(self):
         self.addBorders(self.kNeighborsButton)
         self.removeBorders(self.extraTreeButton)
         self.removeBorders(self.decisionTreeButton)
 
+        self.firstParameterText.setText("N Neighbors: ")
+        self.firstParameterText.show()
+
+        self.firstParameterEdit.setText('3')
+        self.firstParameterEdit.show()
+
+        self.secondParameterText.hide()
+        self.secondParameterEdit.hide()
+
     def decisionTreePrepare(self):
         self.addBorders(self.decisionTreeButton)
         self.removeBorders(self.extraTreeButton)
         self.removeBorders(self.kNeighborsButton)
+
+        self.firstParameterText.setText("Random State: ")
+        self.firstParameterText.show()
+
+        self.firstParameterEdit.setText('42')
+        self.firstParameterEdit.show()
+
+        self.secondParameterText.hide()
+        self.secondParameterEdit.hide()
 
         # data = train_features.load_data(self.data_path)
         # acc = train_features.train_features_extratrees(data)
