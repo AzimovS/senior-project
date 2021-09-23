@@ -289,10 +289,10 @@ QPushButton:pressed{
    <widget class="QLabel" name="accuracyText">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>560</y>
-      <width>57</width>
-      <height>21</height>
+      <x>306</x>
+      <y>550</y>
+      <width>231</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">

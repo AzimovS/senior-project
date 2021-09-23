@@ -48,11 +48,11 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="extraTreeButton">
+   <widget class="QPushButton" name="resnetButton">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>250</y>
+      <x>240</x>
+      <y>220</y>
       <width>141</width>
       <height>91</height>
      </rect>
@@ -73,7 +73,7 @@ QPushButton:pressed{
 }</string>
     </property>
     <property name="text">
-     <string>ExtraTree</string>
+     <string>ResNet</string>
     </property>
    </widget>
    <widget class="QPushButton" name="FACButton">
@@ -121,13 +121,13 @@ Classification</string>
      <string notr="true">font: 75 12pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
     </property>
     <property name="text">
-     <string>Please choose a classifier</string>
+     <string>Please choose a model</string>
     </property>
    </widget>
    <widget class="QLabel" name="howItWorksHeadText">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>300</x>
       <y>130</y>
       <width>361</width>
       <height>41</height>
@@ -141,39 +141,11 @@ text-decoration: underline;</string>
      <string>TRAINING BY PICTURE</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="kNeighborsButton">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>250</y>
-      <width>141</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
-
-	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
-}
-
-QPushButton:hover{
-	background-color: rgb(54, 57, 138);
-}
-QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
-}</string>
-    </property>
-    <property name="text">
-     <string>KNeighbors</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="decisionTreeButton">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>250</y>
+      <x>440</x>
+      <y>220</y>
       <width>141</width>
       <height>91</height>
      </rect>
@@ -194,14 +166,13 @@ QPushButton:pressed{
 }</string>
     </property>
     <property name="text">
-     <string>Decision
-Tree</string>
+     <string>SomethingNet</string>
     </property>
    </widget>
    <widget class="QPushButton" name="predictButton">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>70</x>
       <y>520</y>
       <width>141</width>
       <height>91</height>
@@ -224,24 +195,6 @@ QPushButton:pressed{
     </property>
     <property name="text">
      <string>Predict</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="howItWorksText_2">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>410</y>
-      <width>321</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 75 18pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
-    </property>
-    <property name="text">
-     <string>Parameters:
-Text size:
-Random State:</string>
     </property>
    </widget>
    <widget class="QPushButton" name="goBackButton">
@@ -271,6 +224,38 @@ QPushButton:pressed{
     <property name="text">
      <string>GoBack</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>390</y>
+      <width>251</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>validation size</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Learning rate</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEdit_2"/>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>
