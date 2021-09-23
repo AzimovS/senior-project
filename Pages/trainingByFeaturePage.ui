@@ -127,7 +127,7 @@ Classification</string>
    <widget class="QLabel" name="howItWorksHeadText">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>300</x>
       <y>130</y>
       <width>361</width>
       <height>41</height>
@@ -201,7 +201,7 @@ Tree</string>
    <widget class="QPushButton" name="predictButton">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>50</x>
       <y>520</y>
       <width>141</width>
       <height>91</height>
@@ -285,6 +285,19 @@ QPushButton:pressed{
       <widget class="QLineEdit" name="secondParameterEdit"/>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="accuracyText">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>560</y>
+      <width>57</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Accuracy</string>
+    </property>
    </widget>
   </widget>
  </widget>

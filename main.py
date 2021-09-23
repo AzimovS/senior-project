@@ -129,22 +129,27 @@ class trainingByPicturePage(QDialog):
         widget.addWidget(UTFPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
+
 class trainingByFeaturePage(QDialog):
     def __init__(self, *args):
         super(trainingByFeaturePage, self).__init__()
         self.data_path = args[-1]
         loadUi("Pages/trainingByFeaturePage.ui", self)
+
         self.firstParameterText.hide()
         self.firstParameterEdit.hide()
         self.secondParameterText.hide()
         self.secondParameterEdit.hide()
+        self.accuracyText.hide()
+        self.clf = ''
+
 
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoUTFPage)
         self.extraTreeButton.clicked.connect(self.extraTreeTrainPrepare)
         self.kNeighborsButton.clicked.connect(self.kNeighborsPrepare)
         self.decisionTreeButton.clicked.connect(self.decisionTreePrepare)
-        #self.predictButton.clicked.connect(self.)
+        self.predictButton.clicked.connect(self.predict)
 
     def goBack(self):
         gotoMainPage = WelcomePage()
@@ -157,6 +162,7 @@ class trainingByFeaturePage(QDialog):
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def addBorders(self, button):
+        self.howItWorksText.hide()
         button.setStyleSheet("QPushButton {\n"
                                            "    border-radius: 15px;\n"
                                            "    background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768,         y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));\n"
@@ -189,6 +195,7 @@ class trainingByFeaturePage(QDialog):
                                             "}")
 
     def extraTreeTrainPrepare(self):
+        self.clf = 'extra'
         self.addBorders(self.extraTreeButton)
         self.removeBorders(self.kNeighborsButton)
         self.removeBorders(self.decisionTreeButton)
@@ -206,6 +213,7 @@ class trainingByFeaturePage(QDialog):
         self.secondParameterEdit.show()
 
     def kNeighborsPrepare(self):
+        self.clf = 'kneigh'
         self.addBorders(self.kNeighborsButton)
         self.removeBorders(self.extraTreeButton)
         self.removeBorders(self.decisionTreeButton)
@@ -220,6 +228,7 @@ class trainingByFeaturePage(QDialog):
         self.secondParameterEdit.hide()
 
     def decisionTreePrepare(self):
+        self.clf = 'decision'
         self.addBorders(self.decisionTreeButton)
         self.removeBorders(self.extraTreeButton)
         self.removeBorders(self.kNeighborsButton)
@@ -233,9 +242,16 @@ class trainingByFeaturePage(QDialog):
         self.secondParameterText.hide()
         self.secondParameterEdit.hide()
 
-        # data = train_features.load_data(self.data_path)
-        # acc = train_features.train_features_extratrees(data)
-        # print(acc)
+    def predict(self):
+        if self.clf == '':
+            return
+        data = train_features.load_data(self.data_path)
+        acc = train_features.train_features_extratrees(data, clf=self.clf,
+                                                        first=int(self.firstParameterEdit.text()),
+                                                        second=int(self.secondParameterEdit.text()))
+        self.accuracyText.setText("The accuracy is {}%".format(acc * 100))
+        self.accuracyText.adjustSize()
+        self.accuracyText.show()
 
 
 class predictPage(QDialog):
