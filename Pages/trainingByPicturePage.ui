@@ -141,7 +141,7 @@ text-decoration: underline;</string>
      <string>TRAINING BY PICTURE</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="decisionTreeButton">
+   <widget class="QPushButton" name="somethingButton">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -194,7 +194,7 @@ QPushButton:pressed{
 }</string>
     </property>
     <property name="text">
-     <string>Predict</string>
+     <string>Train</string>
     </property>
    </widget>
    <widget class="QPushButton" name="goBackButton">
@@ -236,24 +236,32 @@ QPushButton:pressed{
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="secondParameterText">
        <property name="text">
         <string>validation size</string>
        </property>
       </widget>
      </item>
      <item row="0" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="firstParameterText">
        <property name="text">
         <string>Learning rate</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QLineEdit" name="firstParameterEdit">
+       <property name="text">
+        <string>0.001</string>
+       </property>
+      </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEdit_2"/>
+      <widget class="QLineEdit" name="secondParameterEdit">
+       <property name="text">
+        <string>0.2</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
