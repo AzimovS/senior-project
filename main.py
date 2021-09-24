@@ -98,14 +98,48 @@ class uploadTrainingFilePage(QDialog):
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def gotoTrainingByPicturePage(self):
-        gotoTBPPage = trainingByPicturePage()
-        widget.addWidget(gotoTBPPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        need_to_create = False
+        for file in os.listdir(self.lineEdit.text()):
+            if file.endswith(".npy"):
+                need_to_create = True
+                break
+
+        if not need_to_create:
+            gotoTBPPage = trainingByPicturePage()
+            widget.addWidget(gotoTBPPage)
+            widget.setCurrentIndex(widget.currentIndex() + 1)
+        else:
+            gotoIFPPage = ImageFolderPreparePage()
+            widget.addWidget(gotoIFPPage)
+            widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def gotoTrainingByFeaturePage(self):
         gotoTBFPage = trainingByFeaturePage(self.lineEdit.text())
         widget.addWidget(gotoTBFPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+class ImageFolderPreparePage(QDialog):
+    def __init__(self):
+        super(ImageFolderPreparePage, self).__init__()
+        loadUi("Pages/dataPreparePage.ui", self)
+        self.browseButton.clicked.connect(self.browsefiles)
+        self.nextButton.clicked.connect(self.prepareData)
+        self.FACButton.clicked.connect(self.goBack)
+
+    def goBack(self):
+        gotoMainPage = WelcomePage()
+        widget.addWidget(gotoMainPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def browsefiles(self):
+        current_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+        print(current_dir)
+        fname = QFileDialog.getExistingDirectory(self, 'Select Directory', current_dir)
+        self.lineEdit.setText(fname)
+
+    def prepareData(self):
+        pass
 
 
 class trainingByPicturePage(QDialog):
