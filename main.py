@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLab
 from PyQt5.QtGui import QPixmap
 import os
 import train_features
+import create_imagenet
 
 class WelcomePage(QDialog):
     def __init__(self):
@@ -64,12 +65,12 @@ class AboutProjectPage(QDialog):
         widget.addWidget(gotoMainPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
+
 class HowItWorksPage(QDialog):
     def __init__(self):
         super(HowItWorksPage, self).__init__()
         loadUi("Pages/howItWorksPage.ui", self)
         self.FACButton.clicked.connect(self.goBack)
-
 
     def goBack(self):
         gotoMainPage = WelcomePage()
@@ -88,7 +89,6 @@ class uploadTrainingFilePage(QDialog):
 
     def browsefiles(self):
         current_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-        print(current_dir)
         fname = QFileDialog.getExistingDirectory(self, 'Select Directory', current_dir)
         self.lineEdit.setText(fname)
 
@@ -109,7 +109,7 @@ class uploadTrainingFilePage(QDialog):
             widget.addWidget(gotoTBPPage)
             widget.setCurrentIndex(widget.currentIndex() + 1)
         else:
-            gotoIFPPage = ImageFolderPreparePage()
+            gotoIFPPage = ImageFolderPreparePage(self.lineEdit.text())
             widget.addWidget(gotoIFPPage)
             widget.setCurrentIndex(widget.currentIndex() + 1)
 
@@ -120,8 +120,9 @@ class uploadTrainingFilePage(QDialog):
 
 
 class ImageFolderPreparePage(QDialog):
-    def __init__(self):
+    def __init__(self, *args):
         super(ImageFolderPreparePage, self).__init__()
+        self.data_path = args[-1]
         loadUi("Pages/dataPreparePage.ui", self)
         self.browseButton.clicked.connect(self.browsefiles)
         self.nextButton.clicked.connect(self.prepareData)
@@ -134,12 +135,15 @@ class ImageFolderPreparePage(QDialog):
 
     def browsefiles(self):
         current_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-        print(current_dir)
         fname = QFileDialog.getExistingDirectory(self, 'Select Directory', current_dir)
         self.lineEdit.setText(fname)
 
     def prepareData(self):
-        pass
+        create_imagenet.create_imagenet_dataset(self.data_path)
+        gotoTBPPage = trainingByPicturePage()
+        widget.addWidget(gotoTBPPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
 
 
 class trainingByPicturePage(QDialog):
