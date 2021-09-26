@@ -7,6 +7,7 @@ import os
 import train_features
 import create_imagenet
 import resnet_train
+import plot_graph
 
 class WelcomePage(QDialog):
     def __init__(self):
@@ -227,6 +228,15 @@ class trainingByPicturePage(QDialog):
                                             float(self.secondParameterEdit.text()))
 
         print(history)
+        train_loss = [x['train_loss'] for x in history]
+        val_loss = [x['val_loss'] for x in history]
+        val_acc = [x['val_acc'] for x in history]
+
+        self.graph_loss = plot_graph.GraphWindow(self, train_loss=train_loss, val_loss=val_loss)
+        self.graph_loss.show()
+
+        self.graph_acc = plot_graph.GraphWindow(self, val_acc=val_acc)
+        self.graph_acc.show()
 
 
 
