@@ -6,6 +6,7 @@ from PyQt5.QtGui import QPixmap
 import os
 import train_features
 import create_imagenet
+import resnet_train
 
 class WelcomePage(QDialog):
     def __init__(self):
@@ -105,7 +106,7 @@ class uploadTrainingFilePage(QDialog):
                 break
 
         if not need_to_create:
-            gotoTBPPage = trainingByPicturePage()
+            gotoTBPPage = trainingByPicturePage(self.lineEdit.text())
             widget.addWidget(gotoTBPPage)
             widget.setCurrentIndex(widget.currentIndex() + 1)
         else:
@@ -140,10 +141,9 @@ class ImageFolderPreparePage(QDialog):
 
     def prepareData(self):
         create_imagenet.create_imagenet_dataset(self.data_path)
-        gotoTBPPage = trainingByPicturePage()
+        gotoTBPPage = trainingByPicturePage(self.data_path)
         widget.addWidget(gotoTBPPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
-
 
 
 class trainingByPicturePage(QDialog):
@@ -151,14 +151,19 @@ class trainingByPicturePage(QDialog):
         super(trainingByPicturePage, self).__init__()
         loadUi("Pages/trainingByPicturePage.ui", self)
 
+        self.data_path = args[-1]
+
         self.firstParameterText.hide()
         self.firstParameterEdit.hide()
         self.secondParameterText.hide()
         self.secondParameterEdit.hide()
+        self.thirdParameterText.hide()
+        self.thirdParameterEdit.hide()
 
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoUTFPage)
         self.resnetButton.clicked.connect(self.resnetPrepare)
+        self.trainButton.clicked.connect(self.trainResnet)
         #self.decisionTreeButton.clicked.connect(self.)
         #self.predictButton.clicked.connect(self.)
 
@@ -213,6 +218,15 @@ class trainingByPicturePage(QDialog):
         self.firstParameterEdit.show()
         self.secondParameterText.show()
         self.secondParameterEdit.show()
+        self.thirdParameterText.show()
+        self.thirdParameterEdit.show()
+
+    def trainResnet(self):
+        history, model = resnet_train.train(self.data_path, int(self.thirdParameterEdit.text()),
+                                            float(self.firstParameterEdit.text()),
+                                            float(self.secondParameterEdit.text()))
+
+        print(history)
 
 
 

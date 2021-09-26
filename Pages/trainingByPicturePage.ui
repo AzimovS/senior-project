@@ -169,7 +169,7 @@ QPushButton:pressed{
      <string>SomethingNet</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="predictButton">
+   <widget class="QPushButton" name="trainButton">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -235,10 +235,10 @@ QPushButton:pressed{
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
-      <widget class="QLabel" name="secondParameterText">
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="secondParameterEdit">
        <property name="text">
-        <string>validation size</string>
+        <string>0.2</string>
        </property>
       </widget>
      </item>
@@ -256,10 +256,24 @@ QPushButton:pressed{
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="secondParameterEdit">
+     <item row="1" column="0">
+      <widget class="QLabel" name="secondParameterText">
        <property name="text">
-        <string>0.2</string>
+        <string>validation size</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="thirdParameterText">
+       <property name="text">
+        <string>epochs</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="thirdParameterEdit">
+       <property name="text">
+        <string>2</string>
        </property>
       </widget>
      </item>
