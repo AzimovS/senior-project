@@ -1,6 +1,6 @@
 import sys
 from PyQt5.uic import loadUi
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLabel, QFileDialog
 from PyQt5.QtGui import QPixmap
 import os
@@ -252,6 +252,7 @@ class trainingByFeaturePage(QDialog):
         self.secondParameterEdit.hide()
         self.accuracyText.hide()
         self.clf = ''
+        self.visualizeButton.hide()
 
 
         self.FACButton.clicked.connect(self.goBack)
@@ -259,7 +260,8 @@ class trainingByFeaturePage(QDialog):
         self.extraTreeButton.clicked.connect(self.extraTreeTrainPrepare)
         self.kNeighborsButton.clicked.connect(self.kNeighborsPrepare)
         self.decisionTreeButton.clicked.connect(self.decisionTreePrepare)
-        self.predictButton.clicked.connect(self.predict)
+        self.predictButton.clicked.connect(self.train)
+        self.visualizeButton.clicked.connect(self.visualize)
 
     def goBack(self):
         gotoMainPage = WelcomePage()
@@ -352,16 +354,47 @@ class trainingByFeaturePage(QDialog):
         self.secondParameterText.hide()
         self.secondParameterEdit.hide()
 
-    def predict(self):
+    def train(self):
         if self.clf == '':
             return
         data = train_features.load_data(self.data_path)
         acc = train_features.train_features_extratrees(data, clf=self.clf,
                                                         first=int(self.firstParameterEdit.text()),
                                                         second=int(self.secondParameterEdit.text()))
-        self.accuracyText.setText("The accuracy is {}%".format(acc * 100))
+        self.accuracyText.setText("The accuracy for validation set is {}%".format(acc * 100))
         self.accuracyText.adjustSize()
         self.accuracyText.show()
+        self.visualizeButton.show()
+
+    def visualize(self):
+        visualizePage = visualizeFeaturePage()
+        widget.addWidget(visualizePage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+class visualizeFeaturePage(QDialog):
+    def __init__(self):
+        super(visualizeFeaturePage, self).__init__()
+        loadUi("Pages/visualizeFeaturePage.ui", self)
+        self.pixmap = QPixmap('ImageFolder269_0/7/game_0:06:07_0:06:13_LogoView_67.jpg')
+        self.image = QLabel(self)
+        self.image.move(100, 100)
+        self.pixmap = self.pixmap.scaled(700, 700, QtCore.Qt.KeepAspectRatio)
+        self.image.setPixmap(self.pixmap)
+        self.FACButton.clicked.connect(self.goBack)
+        self.nextButton.clicked.connect(self.next_frame)
+        self.previousButton.clicked.connect(self.previous_frame)
+
+    def goBack(self):
+        gotoMainPage = WelcomePage()
+        widget.addWidget(gotoMainPage)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def next_frame(self):
+        pass
+
+    def previous_frame(self):
+        pass
 
 
 class predictPage(QDialog):

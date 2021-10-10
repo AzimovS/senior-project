@@ -223,7 +223,7 @@ QPushButton:pressed{
 }</string>
     </property>
     <property name="text">
-     <string>Predict</string>
+     <string>Train</string>
     </property>
    </widget>
    <widget class="QPushButton" name="goBackButton">
@@ -297,6 +297,34 @@ QPushButton:pressed{
     </property>
     <property name="text">
      <string>Accuracy</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="visualizeButton">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>510</y>
+      <width>141</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 15px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+
+	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+}
+
+QPushButton:hover{
+	background-color: rgb(54, 57, 138);
+}
+QPushButton:pressed{
+	background-color: rgb(91, 96, 230);
+}</string>
+    </property>
+    <property name="text">
+     <string>Visualize</string>
     </property>
    </widget>
   </widget>
