@@ -8,12 +8,15 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 def train_features(pd_data, **kwargs):
-    x = pd_data.iloc[:, 2:]
     y = pd_data.iloc[:, 1]
+    pd_data.pop(1)
+    x = pd_data
     X_train, X_test_file, y_train, y_test = train_test_split(x, y.ravel(), test_size=0.2,
                                                         stratify=y, random_state=1)
-    X_test = X_test_file.iloc[:, :-1]
-    X_train = X_train.iloc[:, :-1]
+
+    print(len(X_test_file))
+    X_test = X_test_file.iloc[:, 1:-1]
+    X_train = X_train.iloc[:, 1:-1]
     clf = None
     if kwargs['clf'] == 'extra':
         clf = ExtraTreesClassifier(n_estimators=kwargs['second'], random_state=kwargs['first'])

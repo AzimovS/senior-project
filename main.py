@@ -379,9 +379,10 @@ class visualizeFeaturePage(QDialog):
         loadUi("Pages/visualizeFeaturePage.ui", self)
         self.clf = args[-2]
         self.test_data = args[-1]
+        self.len_data = len(self.test_data[0])
+        print(self.len_data)
         self.cur_frame = 0
         self.set_prediction()
-
 
         self.FACButton.clicked.connect(self.goBack)
         self.nextButton.clicked.connect(self.next_frame)
@@ -391,19 +392,17 @@ class visualizeFeaturePage(QDialog):
         x, y = self.test_data
         x = x.iloc[self.cur_frame, :]
         file_path = x.iloc[-1]
-        x = x[:-1]
-        path = os.path.dirname(os.path.abspath(__file__))
         img = create_imagenet.create_image_return(x, file_path)
+        x = x[1:-1]
         x = pd.DataFrame(x).T
 
         self.trueText.setText("True action: " + str(y[self.cur_frame]))
         self.predictionText.setText("Predicted action: " + str(self.clf.predict(x)[0]))
 
         self.pixmap = QPixmap.fromImage(img)
-        self.image = QLabel(self)
-        self.image.move(100, 130)
-        self.pixmap = self.pixmap.scaled(650, 650, QtCore.Qt.KeepAspectRatio)
+        self.pixmap = self.pixmap.scaled(600, 337, QtCore.Qt.KeepAspectRatio)
         self.image.setPixmap(self.pixmap)
+
 
     def goBack(self):
         gotoMainPage = WelcomePage()
@@ -411,10 +410,16 @@ class visualizeFeaturePage(QDialog):
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def next_frame(self):
-        pass
+        self.cur_frame += 1
+        if self.len_data == self.cur_frame:
+            self.cur_frame = 0
+        self.set_prediction()
 
     def previous_frame(self):
-        pass
+        self.cur_frame -= 1
+        if self.cur_frame == -1:
+            self.cur_frame = self.len_data - 1
+        self.set_prediction()
 
 
 class predictPage(QDialog):

@@ -62,7 +62,6 @@ def create_imagenet_dataset(dir_path):
                     prev_videofile_name = file[:-4]
                 else:
                     create_image(d[0], d[1], file[:-4], dir_path, dest_dir)
-
     return dest_dir
 
 
