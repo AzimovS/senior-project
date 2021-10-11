@@ -4,12 +4,13 @@ import os
 import cv2
 import tqdm
 import datetime
+from PIL import Image
+from PIL.ImageQt import ImageQt
 
 
 def create_image(frame_num, action_num, videofile_name, dir_path, dest_dir):
     frame_num = int(float(frame_num))
     action_num = str(int(float(action_num)))
-
     cap = cv2.VideoCapture(dir_path + '/' + videofile_name + '.mp4')
     cap.set(1, frame_num)
     ret, frame = cap.read()
@@ -17,6 +18,17 @@ def create_image(frame_num, action_num, videofile_name, dir_path, dest_dir):
         os.mkdir(dest_dir + '/' + action_num)
 
     cv2.imwrite('{}/{}/{}.jpg'.format(dest_dir, action_num, videofile_name + '_' + str(frame_num)), frame)
+
+
+def create_image_return(np_array, np_path):
+    frame_num = int(float(np_array.iloc[0]))
+    cap = cv2.VideoCapture(np_path[:-3] + 'mp4')
+    cap.set(1, frame_num)
+    ret, frame = cap.read()
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    frame = Image.fromarray(frame)
+    frame = ImageQt(frame)
+    return frame
 
 
 def create_imagenet_dataset(dir_path):

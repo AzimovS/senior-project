@@ -2,8 +2,9 @@ import sys
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLabel, QFileDialog
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QImage
 import os
+import pandas as pd
 import train_features
 import create_imagenet
 import resnet_train
@@ -358,7 +359,7 @@ class trainingByFeaturePage(QDialog):
         if self.clf == '':
             return
         data = train_features.load_data(self.data_path)
-        acc = train_features.train_features_extratrees(data, clf=self.clf,
+        acc, self.clf, self.test_data = train_features.train_features(data, clf=self.clf,
                                                         first=int(self.firstParameterEdit.text()),
                                                         second=int(self.secondParameterEdit.text()))
         self.accuracyText.setText("The accuracy for validation set is {}%".format(acc * 100))
@@ -367,23 +368,42 @@ class trainingByFeaturePage(QDialog):
         self.visualizeButton.show()
 
     def visualize(self):
-        visualizePage = visualizeFeaturePage()
+        visualizePage = visualizeFeaturePage(self.clf, self.test_data)
         widget.addWidget(visualizePage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
 class visualizeFeaturePage(QDialog):
-    def __init__(self):
+    def __init__(self, *args):
         super(visualizeFeaturePage, self).__init__()
         loadUi("Pages/visualizeFeaturePage.ui", self)
-        self.pixmap = QPixmap('ImageFolder269_0/7/game_0:06:07_0:06:13_LogoView_67.jpg')
-        self.image = QLabel(self)
-        self.image.move(100, 100)
-        self.pixmap = self.pixmap.scaled(700, 700, QtCore.Qt.KeepAspectRatio)
-        self.image.setPixmap(self.pixmap)
+        self.clf = args[-2]
+        self.test_data = args[-1]
+        self.cur_frame = 0
+        self.set_prediction()
+
+
         self.FACButton.clicked.connect(self.goBack)
         self.nextButton.clicked.connect(self.next_frame)
         self.previousButton.clicked.connect(self.previous_frame)
+
+    def set_prediction(self):
+        x, y = self.test_data
+        x = x.iloc[self.cur_frame, :]
+        file_path = x.iloc[-1]
+        x = x[:-1]
+        path = os.path.dirname(os.path.abspath(__file__))
+        img = create_imagenet.create_image_return(x, file_path)
+        x = pd.DataFrame(x).T
+
+        self.trueText.setText("True action: " + str(y[self.cur_frame]))
+        self.predictionText.setText("Predicted action: " + str(self.clf.predict(x)[0]))
+
+        self.pixmap = QPixmap.fromImage(img)
+        self.image = QLabel(self)
+        self.image.move(100, 130)
+        self.pixmap = self.pixmap.scaled(650, 650, QtCore.Qt.KeepAspectRatio)
+        self.image.setPixmap(self.pixmap)
 
     def goBack(self):
         gotoMainPage = WelcomePage()
@@ -455,6 +475,7 @@ class seeVisualsPage(QDialog):
         gotoMainPage = WelcomePage()
         widget.addWidget(gotoMainPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+
 
 #main
 app = QApplication(sys.argv)
