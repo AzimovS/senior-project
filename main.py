@@ -142,8 +142,8 @@ class ImageFolderPreparePage(QDialog):
         self.lineEdit.setText(fname)
 
     def prepareData(self):
-        create_imagenet.create_imagenet_dataset(self.data_path)
-        gotoTBPPage = trainingByPicturePage(self.data_path)
+        new_data_path = create_imagenet.create_imagenet_dataset(self.data_path)
+        gotoTBPPage = trainingByPicturePage(new_data_path)
         widget.addWidget(gotoTBPPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
