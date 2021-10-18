@@ -4,7 +4,7 @@ import os
 import cv2
 import tqdm
 import datetime
-from PIL import Image
+from PIL import Image, ImageDraw
 from PIL.ImageQt import ImageQt
 
 
@@ -19,6 +19,25 @@ def create_image(frame_num, action_num, videofile_name, dir_path, dest_dir):
 
     cv2.imwrite('{}/{}/{}.jpg'.format(dest_dir, action_num, videofile_name + '_' + str(frame_num)), frame)
 
+def draw_ball(frame, np_array):
+    # print(np_array)
+    draw = ImageDraw.Draw(frame)
+    y, x = frame.size
+    start_x = int(float(np_array[3]) * y)
+    start_y = int(float(np_array[4]) * x)
+    print(float(np_array[3]), float(np_array[4]), x, y)
+    print(start_x, start_y)
+    draw.ellipse((start_x, start_y, start_x + 30, start_y + 30), outline=(0, 0, 0), width=2)
+    draw.ellipse((start_x - 10, start_y - 10, start_x + 40, start_y + 40), outline=(0, 0, 0), width=2)
+    draw.ellipse((start_x - 20, start_y - 20, start_x + 50, start_y + 50), outline=(0, 0, 0), width=2)
+    draw.rectangle((start_x - 25, start_y - 25, start_x + 55, start_y + 55), outline=(0, 0, 0), width=2)
+    draw.line((start_x - 25, start_y - 25, start_x + 55, start_y + 55), fill=(0, 0, 0), width=2)
+    draw.line((start_x - 25, start_y + 55, start_x + 55, start_y - 25), fill=(0, 0, 0), width=2)
+    draw.line((start_x - 25, start_y + 15, start_x + 55, start_y + 15), fill=(0, 0, 0), width=2)
+    draw.line((start_x - 25, start_y, start_x + 55, start_y + 30), fill=(0, 0, 0), width=2)
+    draw.line((start_x - 25, start_y + 30, start_x + 55, start_y), fill=(0, 0, 0), width=2)
+
+    return frame
 
 def create_image_return(np_array, np_path):
     frame_num = int(float(np_array.iloc[0]))
@@ -27,6 +46,8 @@ def create_image_return(np_array, np_path):
     ret, frame = cap.read()
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame = Image.fromarray(frame)
+    frame = frame.resize((640, 360))
+    frame = draw_ball(frame, np_array)
     frame = ImageQt(frame)
     return frame
 

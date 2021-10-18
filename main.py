@@ -396,11 +396,11 @@ class visualizeFeaturePage(QDialog):
         x = x[1:-1]
         x = pd.DataFrame(x).T
 
-        self.trueText.setText("True action: " + str(y[self.cur_frame]))
-        self.predictionText.setText("Predicted action: " + str(self.clf.predict(x)[0]))
+        self.trueText.setText("True action: " + str(int(float(y[self.cur_frame]))))
+        self.predictionText.setText("Predicted action: " + str(int(float(self.clf.predict(x)[0]))))
 
         self.pixmap = QPixmap.fromImage(img)
-        self.pixmap = self.pixmap.scaled(600, 337, QtCore.Qt.KeepAspectRatio)
+        # self.pixmap = self.pixmap.scaled(600, 337, QtCore.Qt.KeepAspectRatio)
         self.image.setPixmap(self.pixmap)
 
 
