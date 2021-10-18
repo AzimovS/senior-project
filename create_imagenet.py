@@ -19,6 +19,7 @@ def create_image(frame_num, action_num, videofile_name, dir_path, dest_dir):
 
     cv2.imwrite('{}/{}/{}.jpg'.format(dest_dir, action_num, videofile_name + '_' + str(frame_num)), frame)
 
+
 def draw_ball(frame, np_array):
     # print(np_array)
     draw = ImageDraw.Draw(frame)
@@ -36,8 +37,8 @@ def draw_ball(frame, np_array):
     draw.line((start_x - 25, start_y + 15, start_x + 55, start_y + 15), fill=(0, 0, 0), width=2)
     draw.line((start_x - 25, start_y, start_x + 55, start_y + 30), fill=(0, 0, 0), width=2)
     draw.line((start_x - 25, start_y + 30, start_x + 55, start_y), fill=(0, 0, 0), width=2)
-
     return frame
+
 
 def create_image_return(np_array, np_path):
     frame_num = int(float(np_array.iloc[0]))

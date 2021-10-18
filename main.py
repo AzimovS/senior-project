@@ -384,6 +384,9 @@ class visualizeFeaturePage(QDialog):
         self.cur_frame = 0
         self.set_prediction()
 
+        self.position_form = PositionForm()
+        self.position_form.show()
+
         self.FACButton.clicked.connect(self.goBack)
         self.nextButton.clicked.connect(self.next_frame)
         self.previousButton.clicked.connect(self.previous_frame)
@@ -421,6 +424,21 @@ class visualizeFeaturePage(QDialog):
             self.cur_frame = self.len_data - 1
         self.set_prediction()
 
+
+class PositionForm(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setGeometry(300, 300, 400, 400)
+        self.setWindowTitle('Ball Position')
+        self.pixmap = QPixmap('positions.png')
+        self.image = QLabel(self)
+        self.image.move(0, 0)
+        self.pixmap = self.pixmap.scaled(400, 400)
+        # self.image.resize(500, 500)
+        self.image.setPixmap(self.pixmap)
 
 class predictPage(QDialog):
     def __init__(self):
