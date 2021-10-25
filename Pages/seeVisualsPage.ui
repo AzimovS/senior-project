@@ -116,7 +116,7 @@ Classification</string>
      <rect>
       <x>30</x>
       <y>130</y>
-      <width>371</width>
+      <width>411</width>
       <height>171</height>
      </rect>
     </property>
@@ -210,7 +210,7 @@ text-decoration: underline;</string>
      <string>Frame:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="image">
     <property name="geometry">
      <rect>
       <x>380</x>
@@ -227,9 +227,6 @@ text-decoration: underline;</string>
     </property>
     <property name="text">
      <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../Media/gameAnalysisPhoto.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -263,7 +260,7 @@ QPushButton:pressed{
      <string>GoBack</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="prevButton_2">
+   <widget class="QPushButton" name="framePrev">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -291,7 +288,7 @@ QPushButton:pressed{
      <string>Prev</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="nextButton_2">
+   <widget class="QPushButton" name="frameNext">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -336,7 +333,7 @@ text-decoration: underline;</string>
      <string>Action:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="nextButton_3">
+   <widget class="QPushButton" name="actionNext">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -364,7 +361,7 @@ QPushButton:pressed{
      <string>Next</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="prevButton_3">
+   <widget class="QPushButton" name="actionPrev">
     <property name="geometry">
      <rect>
       <x>30</x>

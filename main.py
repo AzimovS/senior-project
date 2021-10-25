@@ -505,8 +505,9 @@ class uploadVisualizationFilePage(QDialog):
         self.nextButton.clicked.connect(self.gotoSeeVisualsPage)
 
     def browsefiles(self):
-        fname = QFileDialog.getOpenFileName(self, 'Open file','C:\Desktop')
-        self.lineEdit.setText(fname[0])
+        current_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+        fname = QFileDialog.getExistingDirectory(self, 'Select Directory', current_dir)
+        self.lineEdit.setText(fname)
 
     def goBack(self):
         gotoMainPage = WelcomePage()
@@ -514,18 +515,70 @@ class uploadVisualizationFilePage(QDialog):
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def gotoSeeVisualsPage(self):
-        gotoSVPage = seeVisualsPage()
+        gotoSVPage = seeVisualsPage(self.lineEdit.text())
         widget.addWidget(gotoSVPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
 class seeVisualsPage(QDialog):
-    def __init__(self):
+    def __init__(self, *args):
         super(seeVisualsPage, self).__init__()
         loadUi("Pages/seeVisualsPage.ui", self)
+        self.data_path = args[-1]
+        self.data = train_features.load_data(self.data_path)
+        self.len_data = len(self.data)
+        self.cur_frame = 0
+
+        self.set_frame()
+        self.framePrev.clicked.connect(self.previous_frame)
+        self.frameNext.clicked.connect(self.next_frame)
+        self.actionNext.clicked.connect(self.next_action)
+        self.actionPrev.clicked.connect(self.previous_acion)
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoUVFPage)
 
+    def set_frame(self):
+        x = self.data.iloc[self.cur_frame, :]
+        file_path = x.iloc[-1]
+        img = create_imagenet.create_image_return(x, file_path)
+        img = ImageQt(img)
+        self.pixmap = QPixmap.fromImage(img)
+        # self.pixmap = self.pixmap.scaled(600, 337, QtCore.Qt.KeepAspectRatio)
+        self.image.setPixmap(self.pixmap)
+
+        text = "The filename: {}\nFrame number: {}\nCurrent Action: {}\n" \
+               "Attacking Team: {}\nNumber of Detected Players #1: {}\n" \
+               "Number of Detected Players #2: {}\n" \
+               "".format(x.iloc[-1].split('/')[-1], x.iloc[0], x.iloc[1], x.iloc[2], x.iloc[5], x.iloc[6])
+        self.mainText.setText(text)
+
+    def next_action(self):
+        prev = self.cur_frame
+        while self.data.iloc[self.cur_frame, 1] == self.data.iloc[prev, 1]:
+            if self.len_data <= self.cur_frame:
+                self.cur_frame = 0
+            self.cur_frame += 1
+        self.set_frame()
+
+    def previous_acion(self):
+        prev = self.cur_frame
+        while self.data.iloc[self.cur_frame, 1] == self.data.iloc[prev, 1]:
+            if self.len_data <= self.cur_frame:
+                self.cur_frame = 0
+            self.cur_frame -= 1
+        self.set_frame()
+
+    def next_frame(self):
+        self.cur_frame += 1
+        if self.len_data == self.cur_frame:
+            self.cur_frame = 0
+        self.set_frame()
+
+    def previous_frame(self):
+        self.cur_frame -= 1
+        if self.cur_frame == -1:
+            self.cur_frame = self.len_data - 1
+        self.set_frame()
 
     def gotoUVFPage(self):
         UVFPage = uploadVisualizationFilePage()
