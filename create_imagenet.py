@@ -24,8 +24,8 @@ def draw_ball(frame, np_array):
     # print(np_array)
     draw = ImageDraw.Draw(frame)
     y, x = frame.size
-    start_x = int(float(np_array[3]) * y)
-    start_y = int(float(np_array[4]) * x)
+    start_x = 580
+    start_y = 50
     print(float(np_array[3]), float(np_array[4]), x, y)
     print(start_x, start_y)
     draw.ellipse((start_x, start_y, start_x + 30, start_y + 30), outline=(0, 0, 0), width=2)
@@ -49,7 +49,7 @@ def create_image_return(np_array, np_path):
     frame = Image.fromarray(frame)
     frame = frame.resize((640, 360))
     frame = draw_ball(frame, np_array)
-    frame = ImageQt(frame)
+    # frame = ImageQt(frame)
     return frame
 
 
