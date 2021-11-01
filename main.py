@@ -4,6 +4,7 @@ from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLabel, QFileDialog
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtGui import QPainter, QColor
+from videoWidget import VideoWindow
 
 from PIL import Image, ImageDraw
 from PIL.ImageQt import ImageQt
@@ -500,6 +501,7 @@ class uploadVisualizationFilePage(QDialog):
     def __init__(self):
         super(uploadVisualizationFilePage, self).__init__()
         loadUi("Pages/uploadVisualizationFilePage.ui", self)
+        self.lineEdit.setText('/home/azimov/Desktop/senior-project/data')
         self.FACButton.clicked.connect(self.goBack)
         self.browseButton.clicked.connect(self.browsefiles)
         self.nextButton.clicked.connect(self.gotoSeeVisualsPage)
@@ -536,6 +538,15 @@ class seeVisualsPage(QDialog):
         self.actionPrev.clicked.connect(self.previous_acion)
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoUVFPage)
+        self.playVideoButton.clicked.connect(self.show_video)
+
+    def show_video(self):
+        print(self.data.iloc[self.cur_frame, -1])
+        self.video = VideoWindow(self)
+        self.video.openFile(self.data.iloc[self.cur_frame, -1][:-3] + 'mp4')
+        self.video.resize(640, 480)
+        self.video.show()
+
 
     def set_frame(self):
         x = self.data.iloc[self.cur_frame, :]
@@ -590,6 +601,9 @@ class seeVisualsPage(QDialog):
         gotoMainPage = WelcomePage()
         widget.addWidget(gotoMainPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+
 
 
 #main
