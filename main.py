@@ -539,19 +539,27 @@ class seeVisualsPage(QDialog):
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoUVFPage)
         self.playVideoButton.clicked.connect(self.show_video)
+        self.checkBoxBall.clicked.connect(self.set_frame)
 
     def show_video(self):
-        print(self.data.iloc[self.cur_frame, -1])
         self.video = VideoWindow(self)
         self.video.openFile(self.data.iloc[self.cur_frame, -1][:-3] + 'mp4')
         self.video.resize(640, 480)
         self.video.show()
 
 
+
+
     def set_frame(self):
         x = self.data.iloc[self.cur_frame, :]
         file_path = x.iloc[-1]
         img = create_imagenet.create_image_return(x, file_path)
+        if self.checkBoxBall.isChecked():
+            draw = ImageDraw.Draw(img)
+            img_width, img_height = img.size
+            ball_x = int(float(x[3]) * img_width)
+            ball_y = int(float(x[4]) * img_height)
+            draw.rectangle((ball_x - 10, ball_y - 10, ball_x + 10, ball_y + 10), outline=(255, 255, 255), width=2)
         img = ImageQt(img)
         self.pixmap = QPixmap.fromImage(img)
         # self.pixmap = self.pixmap.scaled(600, 337, QtCore.Qt.KeepAspectRatio)
@@ -601,9 +609,6 @@ class seeVisualsPage(QDialog):
         gotoMainPage = WelcomePage()
         widget.addWidget(gotoMainPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
-
-
-
 
 
 #main

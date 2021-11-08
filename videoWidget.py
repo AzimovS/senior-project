@@ -73,9 +73,13 @@ class VideoWindow(QMainWindow):
             self.playButton.setEnabled(True)
 
     def exitCall(self):
+        if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
+            self.mediaPlayer.pause()
         self.close()
 
     def closeEvent(self, event):
+        if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
+            self.mediaPlayer.pause()
         self.close()
 
     def play(self):

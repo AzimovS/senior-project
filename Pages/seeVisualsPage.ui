@@ -417,6 +417,38 @@ QPushButton:pressed{
      <string>Play Video</string>
     </property>
    </widget>
+   <widget class="QCheckBox" name="checkBoxBall">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>140</y>
+      <width>231</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
+    </property>
+    <property name="text">
+     <string>Show Ball's position</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBoxPlayers">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>160</y>
+      <width>271</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
+    </property>
+    <property name="text">
+     <string>Show all players' position</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>

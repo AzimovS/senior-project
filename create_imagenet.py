@@ -23,11 +23,14 @@ def create_image(frame_num, action_num, videofile_name, dir_path, dest_dir):
 def draw_ball(frame, np_array):
     # print(np_array)
     draw = ImageDraw.Draw(frame)
-    y, x = frame.size
+    x, y = frame.size
+    print(x, y)
     start_x = 580
     start_y = 50
-    print(float(np_array[3]), float(np_array[4]), x, y)
-    print(start_x, start_y)
+    # ball_x = int(float(np_array[3]) * x)
+    # ball_y = int(float(np_array[4]) * y)
+    # draw.rectangle((ball_x - 10, ball_y - 10, ball_x + 10, ball_y + 10), outline=(255, 255, 255), width=2)
+
     draw.ellipse((start_x, start_y, start_x + 30, start_y + 30), outline=(0, 0, 0), width=2)
     draw.ellipse((start_x - 10, start_y - 10, start_x + 40, start_y + 40), outline=(0, 0, 0), width=2)
     draw.ellipse((start_x - 20, start_y - 20, start_x + 50, start_y + 50), outline=(0, 0, 0), width=2)
