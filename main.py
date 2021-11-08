@@ -540,6 +540,7 @@ class seeVisualsPage(QDialog):
         self.goBackButton.clicked.connect(self.gotoUVFPage)
         self.playVideoButton.clicked.connect(self.show_video)
         self.checkBoxBall.clicked.connect(self.set_frame)
+        self.checkBoxPlayers.clicked.connect(self.set_frame)
 
     def show_video(self):
         self.video = VideoWindow(self)
@@ -547,19 +548,25 @@ class seeVisualsPage(QDialog):
         self.video.resize(640, 480)
         self.video.show()
 
-
-
-
     def set_frame(self):
         x = self.data.iloc[self.cur_frame, :]
         file_path = x.iloc[-1]
         img = create_imagenet.create_image_return(x, file_path)
+        draw = ImageDraw.Draw(img)
+        img_width, img_height = img.size
         if self.checkBoxBall.isChecked():
-            draw = ImageDraw.Draw(img)
-            img_width, img_height = img.size
             ball_x = int(float(x[3]) * img_width)
             ball_y = int(float(x[4]) * img_height)
             draw.rectangle((ball_x - 10, ball_y - 10, ball_x + 10, ball_y + 10), outline=(255, 255, 255), width=2)
+        if self.checkBoxPlayers.isChecked():
+            j = 0
+            for i in range(8, 52, 2):
+                player_x = int(float(x[i]) * img_width)
+                player_y = int(float(x[i + 1]) * img_height)
+                print(j, x[i], x[i + 1], player_x, player_y)
+                j += 1
+                draw.rectangle((player_x - 10, player_y - 20, player_x + 10, player_y + 20), outline=(255, 255, 255), width=2)
+
         img = ImageQt(img)
         self.pixmap = QPixmap.fromImage(img)
         # self.pixmap = self.pixmap.scaled(600, 337, QtCore.Qt.KeepAspectRatio)
