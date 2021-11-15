@@ -530,6 +530,7 @@ class seeVisualsPage(QDialog):
         self.data = train_features.load_data(self.data_path)
         self.len_data = len(self.data)
         self.cur_frame = 0
+        self.player_num = 0
 
         self.set_frame()
         self.framePrev.clicked.connect(self.previous_frame)
@@ -541,6 +542,9 @@ class seeVisualsPage(QDialog):
         self.playVideoButton.clicked.connect(self.show_video)
         self.checkBoxBall.clicked.connect(self.set_frame)
         self.checkBoxPlayers.clicked.connect(self.set_frame)
+        self.checkBoxOnePlayer.clicked.connect(self.set_frame)
+        self.playerPrevious.clicked.connect(self.previous_player)
+        self.playerNext.clicked.connect(self.next_player)
 
     def show_video(self):
         self.video = VideoWindow(self)
@@ -566,6 +570,13 @@ class seeVisualsPage(QDialog):
                 print(j, x[i], x[i + 1], player_x, player_y)
                 j += 1
                 draw.rectangle((player_x - 10, player_y - 20, player_x + 10, player_y + 20), outline=(255, 255, 255), width=2)
+        elif self.checkBoxOnePlayer.isChecked():
+            player_x = int(float(x[8 + self.player_num]) * img_width)
+            player_y = int(float(x[8 + self.player_num + 1]) * img_height)
+            print(player_x, player_y)
+            if player_x != 0 or player_y != 0:
+                draw.rectangle((player_x - 10, player_y - 20, player_x + 10, player_y + 20), outline=(255, 255, 255),
+                           width=2)
 
         img = ImageQt(img)
         self.pixmap = QPixmap.fromImage(img)
@@ -604,6 +615,18 @@ class seeVisualsPage(QDialog):
         self.cur_frame -= 1
         if self.cur_frame == -1:
             self.cur_frame = self.len_data - 1
+        self.set_frame()
+
+    def next_player(self):
+        self.player_num += 1
+        if self.player_num == 22:
+            self.player_num = 0
+        self.set_frame()
+
+    def previous_player(self):
+        self.player_num -= 1
+        if self.player_num == -1:
+            self.player_num = 21
         self.set_frame()
 
     def gotoUVFPage(self):
