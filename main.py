@@ -398,32 +398,33 @@ class visualizeFeaturePage(QDialog):
 
     def positions(self, dr, color, draw, ball_x, ball_y):
         if 1 <= dr <= 4:
-            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y + 55), fill=color, width=3)
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y + 40), fill=color, width=3)
         if 5 <= dr <= 8:
-            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y + 30), fill=color, width=3)
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y + 25), fill=color, width=3)
         if 9 <= dr <= 12:
-            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y - 15), fill=color, width=3)
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y + 8), fill=color, width=3)
         if 13 <= dr <= 16:
-            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y - 30), fill=color, width=3)
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y - 15), fill=color, width=3)
         if 17 <= dr <= 20:
-            draw.line((ball_x + 15, ball_y + 15, ball_x + 15, ball_y - 30), fill=color, width=3)
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 15, ball_y - 25), fill=color, width=3)
         if 21 <= dr <= 24:
-            draw.line((ball_x + 15, ball_y + 15, ball_x - 25, ball_y - 25), fill=color, width=3)
-        if 25 <= dr <= 28:
             draw.line((ball_x + 15, ball_y + 15, ball_x - 25, ball_y - 15), fill=color, width=3)
+        if 25 <= dr <= 28:
+            draw.line((ball_x + 15, ball_y + 15, ball_x - 25, ball_y + 8), fill=color, width=3)
         if 29 <= dr <= 32:
-            draw.line((ball_x + 15, ball_y + 15, ball_x - 25, ball_y + 15), fill=color, width=3)
+            draw.line((ball_x + 15, ball_y + 15, ball_x - 25, ball_y + 25), fill=color, width=3)
         if 33 <= dr <= 36:
-            draw.line((ball_x + 15, ball_y + 15, ball_x - 25, ball_y + 30), fill=color, width=3)
+            draw.line((ball_x + 15, ball_y + 15, ball_x - 25, ball_y + 40), fill=color, width=3)
         if 37 <= dr <= 40:
-            draw.line((ball_x + 15, ball_y + 15, ball_x, ball_y + 55), fill=color, width=3)
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 15, ball_y + 55), fill=color, width=3)
 
-    def draw_arrows(self, frame, ball_x, ball_y, true, pred):
+    def draw_arrows(self, frame, ball_x, ball_y, true, pred=None):
         draw = ImageDraw.Draw(frame)
         start_x = int(ball_x)
         start_y = int(ball_y)
-        self.positions(pred, (0, 0, 255), draw, start_x, start_y)
         self.positions(true, (255, 0, 0), draw, start_x, start_y)
+        if pred:
+            self.positions(pred, (0, 0, 255), draw, start_x, start_y)
         return frame
 
     def set_prediction(self):
@@ -552,12 +553,44 @@ class seeVisualsPage(QDialog):
         self.video.resize(640, 480)
         self.video.show()
 
+    def positions(self, dr, color, draw, ball_x, ball_y):
+        if 1 <= dr <= 4:
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y + 40), fill=color, width=3)
+        if 5 <= dr <= 8:
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y + 25), fill=color, width=3)
+        if 9 <= dr <= 12:
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y + 8), fill=color, width=3)
+        if 13 <= dr <= 16:
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 55, ball_y - 15), fill=color, width=3)
+        if 17 <= dr <= 20:
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 15, ball_y - 25), fill=color, width=3)
+        if 21 <= dr <= 24:
+            draw.line((ball_x + 15, ball_y + 15, ball_x - 25, ball_y - 15), fill=color, width=3)
+        if 25 <= dr <= 28:
+            draw.line((ball_x + 15, ball_y + 15, ball_x - 25, ball_y + 8), fill=color, width=3)
+        if 29 <= dr <= 32:
+            draw.line((ball_x + 15, ball_y + 15, ball_x - 25, ball_y + 25), fill=color, width=3)
+        if 33 <= dr <= 36:
+            draw.line((ball_x + 15, ball_y + 15, ball_x - 25, ball_y + 40), fill=color, width=3)
+        if 37 <= dr <= 40:
+            draw.line((ball_x + 15, ball_y + 15, ball_x + 15, ball_y + 55), fill=color, width=3)
+
+    def draw_arrows(self, frame, ball_x, ball_y, true, pred=None):
+        draw = ImageDraw.Draw(frame)
+        start_x = int(ball_x)
+        start_y = int(ball_y)
+        self.positions(true, (255, 0, 0), draw, start_x, start_y)
+        if pred:
+            self.positions(pred, (0, 0, 255), draw, start_x, start_y)
+        return frame
+
     def set_frame(self):
         x = self.data.iloc[self.cur_frame, :]
         file_path = x.iloc[-1]
         img = create_imagenet.create_image_return(x, file_path)
         draw = ImageDraw.Draw(img)
         img_width, img_height = img.size
+        img = self.draw_arrows(img, 580, 50, int(float(x.iloc[1])))
         if self.checkBoxBall.isChecked():
             ball_x = int(float(x[3]) * img_width)
             ball_y = int(float(x[4]) * img_height)
