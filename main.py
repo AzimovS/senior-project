@@ -6,7 +6,7 @@ from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtGui import QPainter, QColor
 from videoWidget import VideoWindow
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 from PIL.ImageQt import ImageQt
 import os
 import pandas as pd
@@ -536,6 +536,7 @@ class seeVisualsPage(QDialog):
         self.len_data = len(self.data)
         self.cur_frame = 0
         self.player_num = 0
+        self.labels = {}
 
         self.set_frame()
         self.framePrev.clicked.connect(self.previous_frame)
@@ -550,6 +551,8 @@ class seeVisualsPage(QDialog):
         self.checkBoxOnePlayer.clicked.connect(self.set_frame)
         self.playerPrevious.clicked.connect(self.previous_player)
         self.playerNext.clicked.connect(self.next_player)
+        self.correctButton.clicked.connect(self.label_action)
+        self.incorrectButton.clicked.connect(self.label_action)
 
     def show_video(self):
         self.video = VideoWindow(self)
@@ -557,6 +560,31 @@ class seeVisualsPage(QDialog):
         self.video.move(600, 300)
         self.video.resize(640, 480)
         self.video.show()
+
+    def label_action(self):
+        label = None
+        if self.sender().text() == "Correct":
+            label = 1
+        else:
+            label = 0
+        self.labels[self.cur_frame] = label
+        print(label)
+        iterated = self.cur_frame + 1
+        while self.data.iloc[self.cur_frame, 1] == self.data.iloc[iterated, 1]:
+            iterated += 1
+            if self.len_data <= iterated:
+                iterated = 0
+                break
+            self.labels[iterated - 1] = label
+        iterated = self.cur_frame - 1
+        while self.data.iloc[self.cur_frame, 1] == self.data.iloc[iterated, 1]:
+            iterated -= 1
+            if 0 > iterated:
+                iterated = self.len_data - 1
+                break
+            self.labels[iterated + 1] = label
+        print(self.labels)
+        self.set_frame()
 
     def positions(self, dr, color, draw, ball_x, ball_y):
         if 1 <= dr <= 4:
@@ -596,6 +624,16 @@ class seeVisualsPage(QDialog):
         draw = ImageDraw.Draw(img)
         img_width, img_height = img.size
         img = self.draw_arrows(img, 580, 50, int(float(x.iloc[1])))
+
+        if self.cur_frame in self.labels:
+            if self.labels[self.cur_frame] == 1:
+                text = "correct"
+                color = (0, 255, 0)
+            else:
+                text = "incorrect"
+                color = (255, 0, 0)
+            font = ImageFont.truetype('DejaVuSans.ttf', 30)
+            draw.text((0, 0), text, fill=color, font=font)
         if self.checkBoxBall.isChecked():
             ball_x = int(float(x[3]) * img_width)
             ball_y = int(float(x[4]) * img_height)
@@ -630,17 +668,18 @@ class seeVisualsPage(QDialog):
     def next_action(self):
         prev = self.cur_frame
         while self.data.iloc[self.cur_frame, 1] == self.data.iloc[prev, 1]:
+            self.cur_frame += 1
             if self.len_data <= self.cur_frame:
                 self.cur_frame = 0
-            self.cur_frame += 1
+                break
         self.set_frame()
 
     def previous_acion(self):
         prev = self.cur_frame
         while self.data.iloc[self.cur_frame, 1] == self.data.iloc[prev, 1]:
-            if self.len_data <= self.cur_frame:
-                self.cur_frame = 0
             self.cur_frame -= 1
+            if 0 > self.cur_frame:
+                self.cur_frame = self.len_data - 1
         self.set_frame()
 
     def next_frame(self):

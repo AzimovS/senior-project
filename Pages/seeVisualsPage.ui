@@ -462,7 +462,7 @@ QPushButton:pressed{
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="prevButton_2">
+   <widget class="QPushButton" name="correctButton">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -490,7 +490,7 @@ QPushButton:pressed{
      <string>Correct</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="nextButton_2">
+   <widget class="QPushButton" name="incorrectButton">
     <property name="geometry">
      <rect>
       <x>200</x>
