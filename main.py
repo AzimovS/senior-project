@@ -19,6 +19,7 @@ class WelcomePage(QDialog):
     def __init__(self):
         super(WelcomePage, self).__init__()
         loadUi("Pages/welcomePage.ui", self)
+        # self.setGeometry(0, 0, 650, 900)
         self.aboutProjectButton.clicked.connect(self.gotoATPPage)  #go to About The Project page
         self.howItWorksButton.clicked.connect(self.gotoHIWPage)  #go to How It Works Page
         self.startTrainingButton.clicked.connect(self.gotoUTFPage)  #go to Upload Training File Page
@@ -473,7 +474,7 @@ class PositionForm(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setGeometry(300, 300, 400, 400)
+        self.setGeometry(1450, 300, 400, 400)
         self.setWindowTitle('Ball Position')
         self.pixmap = QPixmap('positions.png')
         self.image = QLabel(self)
@@ -680,6 +681,7 @@ app = QApplication(sys.argv)
 welcome = WelcomePage()
 widget = QtWidgets.QStackedWidget()
 widget.addWidget(welcome)
+widget.move(500, 250)
 widget.setFixedHeight(650)
 widget.setFixedWidth(900)
 widget.show()
