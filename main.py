@@ -1,7 +1,7 @@
 import sys
 from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLabel, QFileDialog
+from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLabel, QFileDialog, QMessageBox
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtGui import QPainter, QColor
 from videoWidget import VideoWindow
@@ -553,6 +553,7 @@ class seeVisualsPage(QDialog):
         self.playerNext.clicked.connect(self.next_player)
         self.correctButton.clicked.connect(self.label_action)
         self.incorrectButton.clicked.connect(self.label_action)
+        self.generateButton.clicked.connect(self.generate_file)
 
     def show_video(self):
         self.video = VideoWindow(self)
@@ -560,6 +561,22 @@ class seeVisualsPage(QDialog):
         self.video.move(600, 300)
         self.video.resize(640, 480)
         self.video.show()
+
+    def generate_file(self):
+        if len(self.labels) > 0:
+            df = pd.DataFrame.from_dict(self.labels, orient='index')
+            df.to_csv('labels.csv')
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("The file was saved in the following path: " + os.getcwd() + '/labels.csv')
+            msg.setWindowTitle("Info")
+            retval = msg.exec_()
+        else:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("There is no labels. Please click on correct/incorrect.")
+            msg.setWindowTitle("Info")
+            retval = msg.exec_()
 
     def label_action(self):
         label = None
