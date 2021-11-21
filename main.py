@@ -90,6 +90,7 @@ class uploadTrainingFilePage(QDialog):
     def __init__(self):
         super(uploadTrainingFilePage, self).__init__()
         loadUi("Pages/uploadTrainingFilePage.ui", self)
+        self.lineEdit.setText('/home/azimov/Desktop/senior-project/data')
         self.FACButton.clicked.connect(self.goBack)
         self.browseButton.clicked.connect(self.browsefiles)
         self.byPictureButton.clicked.connect(self.gotoTrainingByPicturePage)
@@ -440,7 +441,7 @@ class visualizeFeaturePage(QDialog):
 
         self.trueText.setText("True action: " + str(int(float(y[self.cur_frame]))))
         self.predictionText.setText("Predicted action: " + str(int(float(self.clf.predict(x)[0]))))
-        img = self.draw_arrows(img, ball_x, ball_y, int(float(y[self.cur_frame])),
+        img = self.draw_arrows(img, 580, 50, int(float(y[self.cur_frame])),
                                int(float(self.clf.predict(x)[0])))
         img = ImageQt(img)
         self.pixmap = QPixmap.fromImage(img)
