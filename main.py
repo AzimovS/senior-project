@@ -241,9 +241,11 @@ class trainingByPicturePage(QDialog):
         val_acc = [x['val_acc'] for x in history]
 
         self.graph_loss = plot_graph.GraphWindow(self, train_loss=train_loss, val_loss=val_loss)
+        self.graph_loss.move(1450, 0)
         self.graph_loss.show()
 
         self.graph_acc = plot_graph.GraphWindow(self, val_acc=val_acc)
+        self.graph_acc.move(1450, 500)
         self.graph_acc.show()
 
 
@@ -552,6 +554,7 @@ class seeVisualsPage(QDialog):
     def show_video(self):
         self.video = VideoWindow(self)
         self.video.openFile(self.data.iloc[self.cur_frame, -1][:-3] + 'mp4')
+        self.video.move(600, 300)
         self.video.resize(640, 480)
         self.video.show()
 
