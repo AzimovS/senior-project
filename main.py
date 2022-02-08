@@ -601,7 +601,7 @@ class seeVisualsPage(QDialog):
                 break
             self.labels[iterated + 1] = label
         print(self.labels)
-        self.set_frame()
+        self.next_action()
 
     def positions(self, dr, color, draw, ball_x, ball_y):
         if 1 <= dr <= 4:
