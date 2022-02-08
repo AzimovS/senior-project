@@ -579,11 +579,12 @@ class seeVisualsPage(QDialog):
             retval = msg.exec_()
 
     def label_action(self):
+        file_path = self.data.iloc[self.cur_frame, :].iloc[-1].split('/')[-1]
         label = None
         if self.sender().text() == "Correct":
-            label = 1
+            label = [1, file_path]
         else:
-            label = 0
+            label = [0, file_path]
         self.labels[self.cur_frame] = label
         print(label)
         iterated = self.cur_frame + 1
