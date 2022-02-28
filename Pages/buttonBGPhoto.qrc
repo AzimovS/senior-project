@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>gif video.gif</file>
+  </qresource>
+</RCC>

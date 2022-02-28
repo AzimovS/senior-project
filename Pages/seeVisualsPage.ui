@@ -45,7 +45,7 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Media/background.jpg</pixmap>
+     <pixmap>../Media/Des3.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -62,17 +62,17 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 14pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -93,17 +93,17 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 22pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 75 22pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -121,7 +121,7 @@ Classification</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 12pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
+     <string notr="true">font: 75 12pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)</string>
     </property>
     <property name="text">
      <string>Frame number: 199
@@ -141,7 +141,7 @@ Number of Detected Players #2: 5</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 25pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
+     <string notr="true">font: 70 27pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);
 text-decoration: underline;</string>
     </property>
     <property name="text">
@@ -159,17 +159,17 @@ text-decoration: underline;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -186,7 +186,7 @@ QPushButton:pressed{
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 18pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
+     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);
 text-decoration: underline;</string>
     </property>
     <property name="text">
@@ -203,7 +203,7 @@ text-decoration: underline;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 18pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
+     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);
 text-decoration: underline;</string>
     </property>
     <property name="text">
@@ -214,7 +214,7 @@ text-decoration: underline;</string>
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>220</y>
+      <y>230</y>
       <width>511</width>
       <height>301</height>
      </rect>
@@ -235,25 +235,25 @@ text-decoration: underline;</string>
    <widget class="QPushButton" name="goBackButton">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>30</y>
+      <x>550</x>
+      <y>10</y>
       <width>201</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 13pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -271,17 +271,17 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 14pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -299,17 +299,17 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -326,7 +326,7 @@ QPushButton:pressed{
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 18pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
+     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);
 text-decoration: underline;</string>
     </property>
     <property name="text">
@@ -344,17 +344,17 @@ text-decoration: underline;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -372,17 +372,17 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 14pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -392,25 +392,25 @@ QPushButton:pressed{
    <widget class="QPushButton" name="playVideoButton">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>530</y>
+      <x>540</x>
+      <y>540</y>
       <width>221</width>
-      <height>51</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -420,14 +420,14 @@ QPushButton:pressed{
    <widget class="QCheckBox" name="checkBoxBall">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>140</y>
+      <x>380</x>
+      <y>170</y>
       <width>231</width>
       <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 12pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
+     <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)</string>
     </property>
     <property name="text">
      <string>Show Ball's position</string>
@@ -436,14 +436,14 @@ QPushButton:pressed{
    <widget class="QCheckBox" name="checkBoxPlayers">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>160</y>
+      <x>380</x>
+      <y>190</y>
       <width>271</width>
       <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 12pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
+     <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)</string>
     </property>
     <property name="text">
      <string>Show all players' position</string>
@@ -473,17 +473,17 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 14pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -501,17 +501,17 @@ QPushButton:pressed{
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -528,7 +528,7 @@ QPushButton:pressed{
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 18pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190);
+     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);
 text-decoration: underline;</string>
     </property>
     <property name="text">
@@ -538,25 +538,25 @@ text-decoration: underline;</string>
    <widget class="QPushButton" name="generateButton">
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>710</x>
       <y>590</y>
-      <width>141</width>
+      <width>171</width>
       <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 13pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 13pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">

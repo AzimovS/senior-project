@@ -38,14 +38,45 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
     <property name="styleSheet">
      <string notr="true"/>
     </property>
+    <property name="frameShape">
+     <enum>QFrame::WinPanel</enum>
+    </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Media/Des2.png</pixmap>
+     <pixmap>../Media/Des3.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="resNetButton">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>440</y>
+      <width>141</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
+
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgba(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgba(54, 54, 54);
+}</string>
+    </property>
+    <property name="text">
+     <string>ResNet</string>
     </property>
    </widget>
    <widget class="QPushButton" name="FACButton">
@@ -65,7 +96,7 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
 	border-radius: 20px;
 	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 70 22pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
+	font: 75 22pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
@@ -86,14 +117,17 @@ Classification</string>
       <x>30</x>
       <y>180</y>
       <width>371</width>
-      <height>51</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)</string>
+     <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);</string>
     </property>
     <property name="text">
-     <string>Some stuff to know before analysis</string>
+     <string>In this page you can upload a photo 
+and we predict the next action 
+of the player with the ball.
+Now upload a photo:</string>
     </property>
    </widget>
    <widget class="QLabel" name="howItWorksHeadText">
@@ -101,23 +135,23 @@ Classification</string>
      <rect>
       <x>30</x>
       <y>130</y>
-      <width>431</width>
+      <width>301</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);
+     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);;
 text-decoration: underline;</string>
     </property>
     <property name="text">
-     <string>Upload File to Visualize Actions</string>
+     <string>Prediction By Picture</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="nextButton">
+   <widget class="QPushButton" name="alexNetButton">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>500</y>
+      <x>210</x>
+      <y>440</y>
       <width>141</width>
       <height>91</height>
      </rect>
@@ -127,7 +161,7 @@ text-decoration: underline;</string>
 	border-radius: 20px;
 	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 70 13pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
@@ -138,14 +172,14 @@ QPushButton:pressed{
 }</string>
     </property>
     <property name="text">
-     <string>NEXT</string>
+     <string>AlexNet</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>380</y>
+      <x>30</x>
+      <y>310</y>
       <width>331</width>
       <height>31</height>
      </rect>
@@ -154,8 +188,8 @@ QPushButton:pressed{
    <widget class="QPushButton" name="browseButton">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>420</y>
+      <x>150</x>
+      <y>350</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -178,6 +212,75 @@ QPushButton:pressed{
     </property>
     <property name="text">
      <string>Browse</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="howItWorksHeadText_2">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>390</y>
+      <width>311</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);;
+text-decoration: underline;</string>
+    </property>
+    <property name="text">
+     <string>Choose model to use:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="howItWorksHeadText_3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>540</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);;
+text-decoration: underline;</string>
+    </property>
+    <property name="text">
+     <string>Predicted Action:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="predictionGiver">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>590</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>240</y>
+      <width>441</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../Media/ATPButtonPhoto.jpeg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

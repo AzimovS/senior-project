@@ -51,7 +51,7 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Media/background.jpg</pixmap>
+     <pixmap>../Media/Des3.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -71,17 +71,17 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 40), stop:1 rgba(0, 0, 0, 40));
 
-	font: 75 22pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 22pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -100,15 +100,15 @@ Classification</string>
     </property>
     <property name="font">
      <font>
-      <family>Comic Sans MS</family>
-      <pointsize>20</pointsize>
-      <weight>9</weight>
+      <family>Century Gothic</family>
+      <pointsize>22</pointsize>
+      <weight>8</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
+     <string notr="true">font: 70 22pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)</string>
     </property>
     <property name="text">
      <string>Predicted action:</string>
@@ -117,34 +117,34 @@ Classification</string>
    <widget class="QPushButton" name="previousButton">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>520</y>
-      <width>161</width>
-      <height>91</height>
+      <x>510</x>
+      <y>550</y>
+      <width>181</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Comic Sans MS</family>
+      <family>Century Gothic</family>
       <pointsize>14</pointsize>
-      <weight>9</weight>
+      <weight>8</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 14pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -155,33 +155,33 @@ QPushButton:pressed{
     <property name="geometry">
      <rect>
       <x>700</x>
-      <y>520</y>
+      <y>550</y>
       <width>161</width>
-      <height>91</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Comic Sans MS</family>
+      <family>Century Gothic</family>
       <pointsize>14</pointsize>
-      <weight>9</weight>
+      <weight>8</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	border-radius: 15px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));
+	border-radius: 20px;
+	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
 
-	font: 75 14pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgb(54, 57, 138);
+	background-color: rgba(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgb(91, 96, 230);
+	background-color: rgba(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -199,15 +199,16 @@ QPushButton:pressed{
     </property>
     <property name="font">
      <font>
-      <family>Comic Sans MS</family>
-      <pointsize>20</pointsize>
-      <weight>9</weight>
+      <family>Century Gothic</family>
+      <pointsize>22</pointsize>
+      <weight>8</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 20pt &quot;Comic Sans MS&quot;; color: rgb(110, 164, 190)</string>
+     <string notr="true">font: 70 22pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
+</string>
     </property>
     <property name="text">
      <string>True action:</string>
