@@ -1,6 +1,6 @@
 from PyQt5.uic import loadUi
-from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLabel, QFileDialog, QMessageBox
-from main import HowItWorksPage, WelcomePage, widget
+from PyQt5.QtWidgets import QDialog
+from WelcomePageFile import WelcomePage
 
 
 class AboutProjectPage(QDialog):
@@ -11,11 +11,13 @@ class AboutProjectPage(QDialog):
         self.FACButton.clicked.connect(self.goBack)
 
     def gotoHIWPage(self):
+        from main import HowItWorksPage, widget
         HIWPage = HowItWorksPage()
         widget.addWidget(HIWPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def goBack(self):
+        from main import widget
         gotoMainPage = WelcomePage()
         widget.addWidget(gotoMainPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
