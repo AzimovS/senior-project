@@ -2,3 +2,5 @@
 .idea/*
 Lib/*
 pyvenv.cfg
+labels.csv
+__pyscript__/*
