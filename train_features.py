@@ -31,10 +31,13 @@ def train_features(pd_data, **kwargs):
 
 def load_data(dir_path):
     data = None
+    print(dir_path)
     for file in os.listdir(dir_path):
+        print(file)
         if file.endswith("LogoView.npy"):
             if data is None:
                 data = np.load(dir_path + '/' + file)
+                print(len(data))
                 dir_path_np = np.repeat(dir_path + '/' + file, len(data)).reshape(-1, 1)
                 data = np.concatenate((data, dir_path_np), axis=1)
             else:
@@ -42,5 +45,6 @@ def load_data(dir_path):
                 dir_path_np = np.repeat(dir_path + '/' + file, len(d1)).reshape(-1, 1)
                 d1 = np.concatenate((d1, dir_path_np), axis=1)
                 data = np.concatenate((data, d1))
+    print(len(data))
     pd_data = pd.DataFrame(data)
     return pd_data

@@ -24,7 +24,6 @@ def draw_ball(frame, np_array):
     # print(np_array)
     draw = ImageDraw.Draw(frame)
     x, y = frame.size
-    print(x, y)
     start_x = 580
     start_y = 50
     # ball_x = int(float(np_array[3]) * x)
@@ -45,15 +44,16 @@ def draw_ball(frame, np_array):
 
 def create_image_return(np_array, np_path):
     frame_num = int(float(np_array.iloc[0]))
-    cap = cv2.VideoCapture(np_path[:-3] + 'mp4')
+    cap = cv2.VideoCapture(np_path[:-3] + 'avi')
     cap.set(1, frame_num)
     ret, frame = cap.read()
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame = Image.fromarray(frame)
+    original_width, original_height = frame.size
     frame = frame.resize((640, 360))
     frame = draw_ball(frame, np_array)
     # frame = ImageQt(frame)
-    return frame
+    return frame, original_width, original_height
 
 
 def create_imagenet_dataset(dir_path):
