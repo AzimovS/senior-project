@@ -29,7 +29,7 @@ class WelcomePage(QDialog):
     #when about the project button is pressed
     def gotoATPPage(self):
         ATPPage = AboutProjectPage()
-        widget.addWidget(ATPPage, widget)
+        widget.addWidget(ATPPage)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
     #when how it works button pressed
@@ -58,7 +58,7 @@ class WelcomePage(QDialog):
 
 
 class AboutProjectPage(QDialog):
-    def __init__(self, widget):
+    def __init__(self):
         super(AboutProjectPage, self).__init__()
         print(widget.currentIndex())
         loadUi("Pages/aboutTProjectPage.ui", self)

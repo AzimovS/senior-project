@@ -24,7 +24,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget#widget{ 
-background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y2:1, stop:0 rgba(29, 30, 73, 255), stop:1 rgba(39, 41, 100, 255));}</string>
+background-color: rgb(255, 255, 255);}</string>
    </property>
    <widget class="QLabel" name="backgroundPhoto">
     <property name="geometry">
@@ -63,16 +63,15 @@ background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, y
     <property name="styleSheet">
      <string notr="true">QPushButton {
 	border-radius: 20px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
-
-	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
+	background-color: rgb(224, 224, 224);
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgba(73, 96, 96);
+	background-color: rgb(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgba(54, 54, 54);
+	background-color: rgb(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -94,16 +93,15 @@ QPushButton:pressed{
     <property name="styleSheet">
      <string notr="true">QPushButton {
 	border-radius: 20px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
-
-	font: 75 22pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
+	background-color: rgb(224, 224, 224);
+	font: 75 22pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgba(73, 96, 96);
+	background-color: rgb(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgba(54, 54, 54);
+	background-color: rgb(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -121,7 +119,7 @@ Classification</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);</string>
+     <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);</string>
     </property>
     <property name="text">
      <string>In this page you can upload a photo 
@@ -140,7 +138,7 @@ Now upload a photo:</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);;
+     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);;
 text-decoration: underline;</string>
     </property>
     <property name="text">
@@ -159,16 +157,15 @@ text-decoration: underline;</string>
     <property name="styleSheet">
      <string notr="true">QPushButton {
 	border-radius: 20px;
-	background-color: qlineargradient(spread:pad, x1:0.384211, y1:0.023, x2:0.768, 		y2:1, stop:0 rgba(0, 0, 0, 15), stop:1 rgba(0, 0, 0, 15));
-
-	font: 70 14pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)
+	background-color: rgb(224, 224, 224);
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
 }
 
 QPushButton:hover{
-	background-color: rgba(73, 96, 96);
+	background-color: rgb(73, 96, 96);
 }
 QPushButton:pressed{
-	background-color: rgba(54, 54, 54);
+	background-color: rgb(54, 54, 54);
 }</string>
     </property>
     <property name="text">
@@ -224,7 +221,7 @@ QPushButton:pressed{
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 70 16pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);;
+     <string notr="true">font: 70 16pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);;
 text-decoration: underline;</string>
     </property>
     <property name="text">
@@ -241,7 +238,7 @@ text-decoration: underline;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54);;
+     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);;
 text-decoration: underline;</string>
     </property>
     <property name="text">
