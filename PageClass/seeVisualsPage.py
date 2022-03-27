@@ -1,28 +1,33 @@
-from PyQt5.uic import loadUi
-from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLabel, QFileDialog, QMessageBox
-from PyQt5.QtGui import QPixmap
-from videoWidget import VideoWindow
-from PIL import Image, ImageDraw, ImageFont
+from PIL import ImageDraw, ImageFont
 from PIL.ImageQt import ImageQt
-import os
-import pandas as pd
-import train_features
+from PyQt5.QtGui import QPixmap, QKeySequence
+from PyQt5.QtWidgets import QDialog, QFileDialog, QMessageBox, QAction
+from PyQt5.uic import loadUi
+from qtpy import QtCore
+
 import create_imagenet
-# from WelcomePageFile import WelcomePage
+import train_features
+from videoWidget import VideoWindow
+import pandas as pd
 
 
 class seeVisualsPage(QDialog):
-    def __init__(self, *args):
+    def __init__(self, widget, *args):
         super(seeVisualsPage, self).__init__()
         loadUi("Pages/seeVisualsPage.ui", self)
-        self.data_path = args[-1]
-        self.data = train_features.load_data(self.data_path)
-        self.len_data = len(self.data)
-        self.cur_frame = 0
-        self.player_num = 0
-        self.labels = {}
+        self.widget = widget
+        if len(args) > 0:
+            self.data_path = args[-1]
+            self.data = train_features.load_data(self.data_path)
+            self.len_data = len(self.data)
+            self.frames = self.data.index
 
-        self.set_frame()
+            self.cur_frame = 0
+            self.player_num = 0
+            self.labels = {}
+
+            self.set_frame()
+
         self.framePrev.clicked.connect(self.previous_frame)
         self.frameNext.clicked.connect(self.next_frame)
         self.actionNext.clicked.connect(self.next_action)
@@ -38,6 +43,11 @@ class seeVisualsPage(QDialog):
         self.correctButton.clicked.connect(self.label_action)
         self.incorrectButton.clicked.connect(self.label_action)
         self.generateButton.clicked.connect(self.generate_file)
+
+        self.nextAction = QAction("Next Action", self)
+        self.nextAction.setShortcut(QKeySequence(QtCore.Qt.Key_Up))
+        self.nextAction.setStatusTip('Up')
+        self.nextAction.triggered.connect(self.next_action)
 
     def show_video(self):
         self.video = VideoWindow(self)
@@ -62,31 +72,33 @@ class seeVisualsPage(QDialog):
             msg.setWindowTitle("Info")
             retval = msg.exec_()
 
-    def label_action(self):
-        file_path = self.data.iloc[self.cur_frame, :].iloc[-1].split('/')[-1]
-        label = None
-        if self.sender().text() == "Correct":
-            label = [1, file_path]
-        else:
-            label = [0, file_path]
-        self.labels[self.cur_frame] = label
-        print(label)
+    def set_label(self, is_correct):
+        idx = self.frames[self.cur_frame]
+        x = self.data.iloc[idx, :]
+        file_path = x.iloc[-1].split('/')[-1]
+        self.labels[self.frames[self.cur_frame]] = is_correct
         iterated = self.cur_frame + 1
-        while self.data.iloc[self.cur_frame, 1] == self.data.iloc[iterated, 1]:
+        while self.data.iloc[self.frames[self.cur_frame], 1] == self.data.iloc[self.frames[iterated], 1]:
             iterated += 1
             if self.len_data <= iterated:
                 iterated = 0
                 break
-            self.labels[iterated - 1] = label
+            self.labels[iterated - 1] = is_correct
         iterated = self.cur_frame - 1
-        while self.data.iloc[self.cur_frame, 1] == self.data.iloc[iterated, 1]:
+        while self.data.iloc[self.frames[self.cur_frame], 1] == self.data.iloc[self.frames[iterated], 1]:
             iterated -= 1
             if 0 > iterated:
                 iterated = self.len_data - 1
                 break
-            self.labels[iterated + 1] = label
+            self.labels[iterated + 1] = is_correct
         print(self.labels)
         self.next_action()
+
+    def label_action(self):
+        if self.sender().text() == "Correct":
+            self.set_label(1)
+        else:
+            self.set_label(0)
 
     def positions(self, dr, color, draw, ball_x, ball_y):
         if 1 <= dr <= 4:
@@ -120,9 +132,10 @@ class seeVisualsPage(QDialog):
         return frame
 
     def set_frame(self):
-        x = self.data.iloc[self.cur_frame, :]
+        idx = self.frames[self.cur_frame]
+        x = self.data.iloc[idx, :]
         file_path = x.iloc[-1]
-        img = create_imagenet.create_image_return(x, file_path)
+        img, original_wigth, original_height = create_imagenet.create_image_return(x, file_path)
         draw = ImageDraw.Draw(img)
         img_width, img_height = img.size
         img = self.draw_arrows(img, 580, 50, int(float(x.iloc[1])))
@@ -136,31 +149,31 @@ class seeVisualsPage(QDialog):
                 color = (255, 0, 0)
             font = ImageFont.truetype('DejaVuSans.ttf', 30)
             draw.text((0, 0), text, fill=color, font=font)
+
         if self.checkBoxBall.isChecked():
             ball_x = int(float(x[3]) * img_width)
-            ball_y = int(float(x[4]) * img_height)
-            draw.rectangle((ball_x - 10, ball_y - 10, ball_x + 10, ball_y + 10), outline=(255, 255, 255), width=2)
+            ball_y = int(float(x[4])  * img_height)
+            draw.rectangle((ball_x - 5, ball_y - 5, ball_x + 5, ball_y + 5), outline=(255, 255, 255), width=2)
         if self.checkBoxPlayers.isChecked():
             j = 0
             for i in range(8, 52, 2):
-                player_x = int(float(x[i]) * img_width)
-                player_y = int(float(x[i + 1]) * img_height)
-                print(j, x[i], x[i + 1], player_x, player_y)
+                player_x = int(float(x[i]) / original_wigth * img_width)
+                player_y = int(float(x[i + 1]) / original_height * img_height)
+                if (player_x == 0 and player_y == 0):
+                    continue
                 j += 1
-                draw.rectangle((player_x - 10, player_y - 20, player_x + 10, player_y + 20), outline=(255, 255, 255), width=2)
+                draw.text((player_x, player_y - 10), f"{j}th {x[i]} {x[i + 1]} {player_x} {player_y}", fill=(255, 0, 0), font=ImageFont.truetype('DejaVuSans.ttf', 15))
+                draw.rectangle((player_x - 20, player_y - 40, player_x, player_y), outline=(255, 255, 255), width=2)
         elif self.checkBoxOnePlayer.isChecked():
-            player_x = int(float(x[8 + self.player_num]) * img_width)
-            player_y = int(float(x[8 + self.player_num + 1]) * img_height)
-            print(player_x, player_y)
+            player_x = int(float(x[8 + self.player_num]) / original_wigth * img_width)
+            player_y = int(float(x[8 + self.player_num + 1]) / original_height * img_height)
             if player_x != 0 or player_y != 0:
-                draw.rectangle((player_x - 10, player_y - 20, player_x + 10, player_y + 20), outline=(255, 255, 255),
+                draw.rectangle((player_x - 20, player_y - 40, player_x, player_y), outline=(255, 255, 255),
                            width=2)
-
         img = ImageQt(img)
         self.pixmap = QPixmap.fromImage(img)
         # self.pixmap = self.pixmap.scaled(600, 337, QtCore.Qt.KeepAspectRatio)
         self.image.setPixmap(self.pixmap)
-
         text = "The filename: {}\nFrame number: {}\nCurrent Action: {}\n" \
                "Attacking Team: {}\nNumber of Detected Players #1: {}\n" \
                "Number of Detected Players #2: {}\n" \
@@ -209,15 +222,27 @@ class seeVisualsPage(QDialog):
         self.set_frame()
 
     def gotoUVFPage(self):
-        from uploadVisualizationFilePageFile import uploadVisualizationFilePage
-        from main import widget
         UVFPage = uploadVisualizationFilePage()
         widget.addWidget(UVFPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
-
     def goBack(self):
-        from main import widget
         gotoMainPage = WelcomePage()
         widget.addWidget(gotoMainPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def keyPressEvent(self, event):
+        if event.key() == QtCore.Qt.Key_I:
+            self.next_action()
+        if event.key() == QtCore.Qt.Key_K:
+            self.previous_acion()
+        if event.key() == QtCore.Qt.Key_L:
+            self.next_frame()
+        if event.key() == QtCore.Qt.Key_J:
+            self.previous_frame()
+        if event.key() == QtCore.Qt.Key_X:
+            self.set_label(0)
+        if event.key() == QtCore.Qt.Key_C:
+            self.set_label(1)
+        if event.key() == QtCore.Qt.Key_V:
+            self.show_video()
