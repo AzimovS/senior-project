@@ -4,3 +4,5 @@ Lib/*
 pyvenv.cfg
 labels.csv
 __pyscript__/*
+__pycache__/*
+PageClass/__pycache__/*
