@@ -1,22 +1,18 @@
 from PyQt5.QtWidgets import QDialog
 from PyQt5.uic import loadUi
-import GlobalVariables
-from HowItWorksPageFile import HowItWorksPage
+from PageClass import GlobalVariables
 
 
 class AboutProjectPage(QDialog):
-    def __init__(self):
+    def __init__(self, widget):
         super(AboutProjectPage, self).__init__()
         loadUi("Pages/aboutTProjectPage.ui", self)
+        self.widget = widget
         self.howItWorksButton.clicked.connect(self.gotoHIWPage)
         self.FACButton.clicked.connect(self.goBack)
 
     def gotoHIWPage(self):
-        HIWPage = HowItWorksPage()
-        widget.addWidget(HIWPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        self.widget.setCurrentIndex(GlobalVariables.PAGE_TO_INDEX['HowItWorksPage'])
 
     def goBack(self):
-        gotoMainPage = WelcomePage()
-        widget.addWidget(gotoMainPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        self.widget.setCurrentIndex(0)

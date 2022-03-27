@@ -1,19 +1,20 @@
+from PyQt5.QtWidgets import QDialog, QFileDialog
 from PyQt5.uic import loadUi
-from PyQt5.QtWidgets import QDialog
-import resnet_train
-import plot_graph
-# from WelcomePageFile import WelcomePage
-from uploadTrainingFilePageFile import uploadTrainingFilePage
 
+import plot_graph
+import resnet_train
+from PageClass import GlobalVariables
 
 
 class trainingByPicturePage(QDialog):
-    def __init__(self, *args):
+    def __init__(self, widget, *args):
         super(trainingByPicturePage, self).__init__()
         loadUi("Pages/trainingByPicturePage.ui", self)
 
-        self.data_path = args[-1]
+        if len(args) > 0:
+            self.data_path = args[-1]
 
+        self.widget = widget
         self.firstParameterText.hide()
         self.firstParameterEdit.hide()
         self.secondParameterText.hide()
@@ -29,16 +30,10 @@ class trainingByPicturePage(QDialog):
         #self.predictButton.clicked.connect(self.)
 
     def goBack(self):
-        from main import widget
-        gotoMainPage = WelcomePage()
-        widget.addWidget(gotoMainPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        self.widget.setCurrentIndex(GlobalVariables.PAGE_TO_INDEX['WelcomePage'])
 
     def gotoUTFPage(self):
-        from main import widget
-        UTFPage = uploadTrainingFilePage()
-        widget.addWidget(UTFPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        self.widget.setCurrentIndex(GlobalVariables.PAGE_TO_INDEX['uploadTrainingFilePage'])
 
     def addBorders(self, button):
         self.howItWorksText.hide()

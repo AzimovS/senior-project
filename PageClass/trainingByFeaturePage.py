@@ -1,15 +1,16 @@
+from PyQt5.QtWidgets import QDialog, QFileDialog
 from PyQt5.uic import loadUi
-from PyQt5.QtWidgets import QDialog
+
 import train_features
-# from WelcomePageFile import WelcomePage
-from uploadTrainingFilePageFile import uploadTrainingFilePage
-
-
+from PageClass import GlobalVariables
+from PageClass.visualizeFeaturePage import visualizeFeaturePage
 
 class trainingByFeaturePage(QDialog):
-    def __init__(self, *args):
+    def __init__(self, widget, *args):
         super(trainingByFeaturePage, self).__init__()
-        self.data_path = args[-1]
+        if (len(args) > 0):
+            self.data_path = args[-1]
+        self.widget = widget
         loadUi("Pages/trainingByFeaturePage.ui", self)
 
         self.firstParameterText.hide()
@@ -30,16 +31,10 @@ class trainingByFeaturePage(QDialog):
         self.visualizeButton.clicked.connect(self.visualize)
 
     def goBack(self):
-        from main import widget
-        gotoMainPage = WelcomePage()
-        widget.addWidget(gotoMainPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        self.widget.setCurrentIndex(GlobalVariables.PAGE_TO_INDEX['WelcomePage'])
 
     def gotoUTFPage(self):
-        from main import widget
-        UTFPage = uploadTrainingFilePage()
-        widget.addWidget(UTFPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        self.widget.setCurrentIndex(GlobalVariables.PAGE_TO_INDEX['uploadTrainingFilePage'])
 
     def addBorders(self, button):
         self.howItWorksText.hide()
@@ -135,7 +130,6 @@ class trainingByFeaturePage(QDialog):
         self.visualizeButton.show()
 
     def visualize(self):
-        from main import visualizeFeaturePage, widget
-        visualizePage = visualizeFeaturePage(self.clf, self.test_data)
-        widget.addWidget(visualizePage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        visualizePage = visualizeFeaturePage(self.widget, self.clf, self.test_data)
+        self.widget.insertWidget(GlobalVariables.PAGE_TO_INDEX['visualizeFeaturePage'], visualizePage)
+        self.widget.setCurrentIndex(GlobalVariables.PAGE_TO_INDEX['visualizeFeaturePage'])

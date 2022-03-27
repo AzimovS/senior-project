@@ -1,28 +1,28 @@
-from PyQt5.uic import loadUi
-from PyQt5.QtWidgets import QDialog
-from PyQt5.QtGui import QPixmap
-from PIL import Image, ImageDraw
+from PIL import ImageDraw
 from PIL.ImageQt import ImageQt
-import pandas as pd
-import create_imagenet
-# from WelcomePageFile import WelcomePage
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QDialog, QFileDialog
+from PyQt5.uic import loadUi
 
+import create_imagenet
+import pandas as pd
+from PageClass import GlobalVariables
+from PositionFormFile import PositionForm
 
 
 class visualizeFeaturePage(QDialog):
-    def __init__(self, *args):
+    def __init__(self, widget, *args):
         super(visualizeFeaturePage, self).__init__()
         loadUi("Pages/visualizeFeaturePage.ui", self)
-        self.clf = args[-2]
-        self.test_data = args[-1]
-        self.len_data = len(self.test_data[0])
-        print(self.len_data)
-        self.cur_frame = 0
-        self.set_prediction()
-
-        from main import PositionForm
-        self.position_form = PositionForm()
-        self.position_form.show()
+        self.widget = widget
+        if len(args) > 1:
+            self.clf = args[-2]
+            self.test_data = args[-1]
+            self.len_data = len(self.test_data[0])
+            self.cur_frame = 0
+            self.set_prediction()
+            self.position_form = PositionForm()
+            self.position_form.show()
 
         self.FACButton.clicked.connect(self.goBack)
         self.nextButton.clicked.connect(self.next_frame)
@@ -63,7 +63,7 @@ class visualizeFeaturePage(QDialog):
         x, y = self.test_data
         x = x.iloc[self.cur_frame, :]
         file_path = x.iloc[-1]
-        img = create_imagenet.create_image_return(x, file_path)
+        img, _, _ = create_imagenet.create_image_return(x, file_path)
         frame_num = int(float(x.iloc[0]))
         ball_x = float(x[3]) * 640
         ball_y = float(x[4]) * 360
@@ -81,10 +81,7 @@ class visualizeFeaturePage(QDialog):
 
 
     def goBack(self):
-        from main import widget
-        gotoMainPage = WelcomePage()
-        widget.addWidget(gotoMainPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        self.widget.setCurrentIndex(GlobalVariables.PAGE_TO_INDEX['WelcomePage'])
 
     def next_frame(self):
         self.cur_frame += 1
