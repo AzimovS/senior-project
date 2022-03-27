@@ -1,6 +1,6 @@
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLabel, QFileDialog, QMessageBox
-from WelcomePageFile import WelcomePage
+# from WelcomePageFile import WelcomePage
 
 
 class predictPage(QDialog):

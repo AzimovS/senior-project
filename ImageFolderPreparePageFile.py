@@ -2,10 +2,7 @@ from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QDialog, QFileDialog
 import os
 import create_imagenet
-from WelcomePageFile import WelcomePage
-from AboutProjectPageFile import AboutProjectPage
-from HowItWorksPageFile import HowItWorksPage
-from uploadTrainingFilePageFile import uploadTrainingFilePage
+# from WelcomePageFile import WelcomePage
 
 
 class ImageFolderPreparePage(QDialog):

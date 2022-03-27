@@ -1,13 +1,14 @@
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QDialog, QApplication, QWidget, QStackedWidget, QLabel, QFileDialog, QMessageBox
 import os
-from WelcomePageFile import WelcomePage
-
+# from WelcomePageFile import WelcomePage
+from main import widget, seeVisualsPage
 
 
 class uploadVisualizationFilePage(QDialog):
     def __init__(self):
         super(uploadVisualizationFilePage, self).__init__()
+        print(widget.currentIndex())
         loadUi("Pages/uploadVisualizationFilePage.ui", self)
         self.lineEdit.setText('/home/azimov/Desktop/senior-project/data')
         self.FACButton.clicked.connect(self.goBack)
@@ -20,13 +21,11 @@ class uploadVisualizationFilePage(QDialog):
         self.lineEdit.setText(fname)
 
     def goBack(self):
-        from main import widget
         gotoMainPage = WelcomePage()
         widget.addWidget(gotoMainPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
     def gotoSeeVisualsPage(self):
-        from main import seeVisualsPage, widget
         gotoSVPage = seeVisualsPage(self.lineEdit.text())
         widget.addWidget(gotoSVPage)
         widget.setCurrentIndex(widget.currentIndex() + 1)

@@ -1,7 +1,7 @@
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QDialog
 import train_features
-from WelcomePageFile import WelcomePage
+# from WelcomePageFile import WelcomePage
 from uploadTrainingFilePageFile import uploadTrainingFilePage
 
 

@@ -1,6 +1,5 @@
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QDialog
-from WelcomePageFile import WelcomePage
 
 
 class HowItWorksPage(QDialog):

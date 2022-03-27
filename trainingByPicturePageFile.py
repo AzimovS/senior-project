@@ -2,7 +2,7 @@ from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QDialog
 import resnet_train
 import plot_graph
-from WelcomePageFile import WelcomePage
+# from WelcomePageFile import WelcomePage
 from uploadTrainingFilePageFile import uploadTrainingFilePage
 
 

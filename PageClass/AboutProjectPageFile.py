@@ -1,6 +1,8 @@
-from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QDialog
+from PyQt5.uic import loadUi
+import GlobalVariables
 from HowItWorksPageFile import HowItWorksPage
+
 
 class AboutProjectPage(QDialog):
     def __init__(self):

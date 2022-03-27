@@ -8,7 +8,7 @@ import os
 import pandas as pd
 import train_features
 import create_imagenet
-from WelcomePageFile import WelcomePage
+# from WelcomePageFile import WelcomePage
 
 
 class seeVisualsPage(QDialog):

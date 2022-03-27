@@ -436,7 +436,7 @@ class visualizeFeaturePage(QDialog):
         x, y = self.test_data
         x = x.iloc[self.cur_frame, :]
         file_path = x.iloc[-1]
-        img = create_imagenet.create_image_return(x, file_path)
+        img, _, _ = create_imagenet.create_image_return(x, file_path)
         frame_num = int(float(x.iloc[0]))
         ball_x = float(x[3]) * 640
         ball_y = float(x[4]) * 360

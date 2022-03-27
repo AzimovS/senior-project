@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw
 from PIL.ImageQt import ImageQt
 import pandas as pd
 import create_imagenet
-from WelcomePageFile import WelcomePage
+# from WelcomePageFile import WelcomePage
 
 
 

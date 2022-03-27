@@ -47,6 +47,10 @@ def create_image_return(np_array, np_path):
     cap = cv2.VideoCapture(np_path[:-3] + 'avi')
     cap.set(1, frame_num)
     ret, frame = cap.read()
+    if not ret:
+        cap = cv2.VideoCapture(np_path[:-3] + 'mp4')
+        cap.set(1, frame_num)
+        ret, frame = cap.read()
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame = Image.fromarray(frame)
     original_width, original_height = frame.size
