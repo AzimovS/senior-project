@@ -13,52 +13,241 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="backgroundwidget" native="true">
+  <widget class="QLabel" name="backgroundPhoto">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>901</width>
-     <height>651</height>
+     <width>900</width>
+     <height>650</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../Media/Des2.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="FACButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>271</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 22pt &quot;Century Gothic&quot;; 
+   color: black;
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: black;
+}</string>
+   </property>
+   <property name="text">
+    <string>Football Action
+Classification</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="goBackButton">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>40</y>
+     <width>201</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget#widget{ 
-background-color: rgb(255, 255, 255);}</string>
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
    </property>
-   <widget class="QLabel" name="backgroundPhoto">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>-30</y>
-      <width>900</width>
-      <height>700</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../Media/Des2.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="extraTreeButton">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>250</y>
-      <width>141</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
+   <property name="text">
+    <string>GoBack</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="howItWorksHeadText">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>140</y>
+     <width>361</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 70 21pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
+text-decoration: underline;</string>
+   </property>
+   <property name="text">
+    <string>TRAINING BY FEATURE</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="howItWorksText">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>180</y>
+     <width>251</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
+   </property>
+   <property name="text">
+    <string>Please choose a classifier</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>340</y>
+     <width>331</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="firstParameterText">
+      <property name="styleSheet">
+       <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
+      </property>
+      <property name="text">
+       <string>Random State</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="secondParameterText">
+      <property name="styleSheet">
+       <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
+      </property>
+      <property name="text">
+       <string>N estimators</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="firstParameterEdit">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="secondParameterEdit">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="accuracyText">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>470</y>
+     <width>231</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
+   </property>
+   <property name="text">
+    <string>Accuracy</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="kNeighborsButton">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>250</y>
+     <width>141</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
+   </property>
+   <property name="text">
+    <string>KNeighbors</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="visualizeButton">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>530</y>
+     <width>141</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
+   </property>
+   <property name="text">
+    <string>Visualize</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="extraTreeButton">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>250</y>
+     <width>141</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
 	border-radius: 20px;
 	background-color: rgb(224, 224, 224);
 	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
@@ -70,86 +259,22 @@ QPushButton:hover{
 QPushButton:pressed{
 	background-color: rgb(54, 54, 54);
 }</string>
-    </property>
-    <property name="text">
-     <string>ExtraTree</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="FACButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>271</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 22pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>Football Action
-Classification</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="howItWorksText">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>170</y>
-      <width>251</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
-    </property>
-    <property name="text">
-     <string>Please choose a classifier</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="howItWorksHeadText">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>130</y>
-      <width>361</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 70 21pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
-text-decoration: underline;</string>
-    </property>
-    <property name="text">
-     <string>TRAINING BY FEATURE</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="kNeighborsButton">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>250</y>
-      <width>141</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
+   </property>
+   <property name="text">
+    <string>ExtraTree</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="decisionTreeButton">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>250</y>
+     <width>141</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
 	border-radius: 20px;
 	background-color: rgb(224, 224, 224);
 	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
@@ -161,50 +286,23 @@ QPushButton:hover{
 QPushButton:pressed{
 	background-color: rgb(54, 54, 54);
 }</string>
-    </property>
-    <property name="text">
-     <string>KNeighbors</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="decisionTreeButton">
-    <property name="geometry">
-     <rect>
-      <x>600</x>
-      <y>250</y>
-      <width>141</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>Decision
+   </property>
+   <property name="text">
+    <string>Decision
 Tree</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="predictButton">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>530</y>
-      <width>141</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
+   </property>
+  </widget>
+  <widget class="QPushButton" name="predictButton">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>530</y>
+     <width>141</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
 	border-radius: 20px;
 	background-color: rgb(224, 224, 224);
 	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
@@ -216,127 +314,10 @@ QPushButton:hover{
 QPushButton:pressed{
 	background-color: rgb(54, 54, 54);
 }</string>
-    </property>
-    <property name="text">
-     <string>Train</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="goBackButton">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>40</y>
-      <width>201</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>GoBack</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>340</y>
-      <width>331</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="firstParameterText">
-       <property name="styleSheet">
-        <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)</string>
-       </property>
-       <property name="text">
-        <string>Random State</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="secondParameterText">
-       <property name="styleSheet">
-        <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgba(54, 54, 54)</string>
-       </property>
-       <property name="text">
-        <string>N estimators</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="firstParameterEdit">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="secondParameterEdit">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QLabel" name="accuracyText">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>470</y>
-      <width>231</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
-    </property>
-    <property name="text">
-     <string>Accuracy</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="visualizeButton">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>530</y>
-      <width>141</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>Visualize</string>
-    </property>
-   </widget>
+   </property>
+   <property name="text">
+    <string>Train</string>
+   </property>
   </widget>
  </widget>
  <resources/>

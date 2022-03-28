@@ -13,55 +13,199 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="backgroundwidget" native="true">
+  <widget class="QLabel" name="backgroundPhoto">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>901</width>
-     <height>651</height>
+     <width>900</width>
+     <height>650</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../Media/Des3.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="FACButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>271</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 22pt &quot;Century Gothic&quot;; 
+   color: black;
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: black;
+}</string>
+   </property>
+   <property name="text">
+    <string>Football Action
+Classification</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="goBackButton">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>40</y>
+     <width>201</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget#widget{ 
-background-color: rgb(255, 255, 255);}</string>
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
    </property>
-   <widget class="QLabel" name="backgroundPhoto">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>-30</y>
-      <width>900</width>
-      <height>700</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::WinPanel</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>../Media/Des3.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="playerPrevious">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>413</y>
-      <width>141</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
+   <property name="text">
+    <string>GoBack</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="footballPlayerText">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>371</y>
+     <width>301</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
+text-decoration: underline;</string>
+   </property>
+   <property name="text">
+    <string>Football Player:</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBoxPlayers">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>186</y>
+     <width>271</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
+   </property>
+   <property name="text">
+    <string>Show all players' position</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBoxOnePlayer">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>381</y>
+     <width>85</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="actionText">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>546</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
+text-decoration: underline;</string>
+   </property>
+   <property name="text">
+    <string>Action:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="generateButton">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>586</y>
+     <width>171</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
+   </property>
+   <property name="text">
+    <string>Generate labels</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="visualsHeader">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>36</y>
+     <width>271</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 70 27pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
+text-decoration: underline;</string>
+   </property>
+   <property name="text">
+    <string>Visualization</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="frameNext">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>496</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
 	border-radius: 20px;
 	background-color: rgb(224, 224, 224);
 	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
@@ -73,28 +217,25 @@ QPushButton:hover{
 QPushButton:pressed{
 	background-color: rgb(54, 54, 54);
 }</string>
-    </property>
-    <property name="text">
-     <string>Prev</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="FACButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>271</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
+   </property>
+   <property name="text">
+    <string>Next</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="actionNext">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>586</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
 	border-radius: 20px;
 	background-color: rgb(224, 224, 224);
-	font: 70 22pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
 }
 
 QPushButton:hover{
@@ -103,60 +244,232 @@ QPushButton:hover{
 QPushButton:pressed{
 	background-color: rgb(54, 54, 54);
 }</string>
-    </property>
-    <property name="text">
-     <string>Football Action
-Classification</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="mainText">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>130</y>
-      <width>411</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 75 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
-    </property>
-    <property name="text">
-     <string>Frame number: 199
+   </property>
+   <property name="text">
+    <string>Next</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="image">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>226</y>
+     <width>511</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Panel</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="playVideoButton">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>536</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
+   </property>
+   <property name="text">
+    <string>Play Video</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="playerNext">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>409</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
+   </property>
+   <property name="text">
+    <string>Next</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="mainText">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>126</y>
+     <width>411</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
+   </property>
+   <property name="text">
+    <string>Frame number: 199
 Current Action: 21
 Attacking Team: 1
 Number of Detected Players #1: 10
 Number of Detected Players #2: 5</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="visualsHeader">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>40</y>
-      <width>271</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 70 27pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
+   </property>
+  </widget>
+  <widget class="QPushButton" name="framePrev">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>496</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
+   </property>
+   <property name="text">
+    <string>Prev</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBoxBall">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>166</y>
+     <width>231</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
+   </property>
+   <property name="text">
+    <string>Show Ball's position</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="playerPrevious">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>409</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
+   </property>
+   <property name="text">
+    <string>Prev</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="correctButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>320</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
+   </property>
+   <property name="text">
+    <string>Correct</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="frameText">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>455</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
 text-decoration: underline;</string>
-    </property>
-    <property name="text">
-     <string>Visualization</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="playerNext">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>413</y>
-      <width>141</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
+   </property>
+   <property name="text">
+    <string>Frame:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="actionPrev">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>586</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
 	border-radius: 20px;
 	background-color: rgb(224, 224, 224);
 	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
@@ -168,105 +481,39 @@ QPushButton:hover{
 QPushButton:pressed{
 	background-color: rgb(54, 54, 54);
 }</string>
-    </property>
-    <property name="text">
-     <string>Next</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="footballPlayerText">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>375</y>
-      <width>301</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
+   </property>
+   <property name="text">
+    <string>Prev</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="identifyAction">
+   <property name="geometry">
+    <rect>
+     <x>28</x>
+     <y>280</y>
+     <width>301</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
 text-decoration: underline;</string>
-    </property>
-    <property name="text">
-     <string>Football Player:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="frameText">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>459</y>
-      <width>101</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
-text-decoration: underline;</string>
-    </property>
-    <property name="text">
-     <string>Frame:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="image">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>230</y>
-      <width>511</width>
-      <height>301</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Panel</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="goBackButton">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>10</y>
-      <width>201</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>GoBack</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="framePrev">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>500</y>
-      <width>141</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
+   </property>
+   <property name="text">
+    <string>Identify Action:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="incorrectButton">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>320</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
 	border-radius: 20px;
 	background-color: rgb(224, 224, 224);
 	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
@@ -278,283 +525,12 @@ QPushButton:hover{
 QPushButton:pressed{
 	background-color: rgb(54, 54, 54);
 }</string>
-    </property>
-    <property name="text">
-     <string>Prev</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="frameNext">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>500</y>
-      <width>141</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>Next</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="actionText">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>550</y>
-      <width>101</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
-text-decoration: underline;</string>
-    </property>
-    <property name="text">
-     <string>Action:</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="actionNext">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>590</y>
-      <width>141</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>Next</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="actionPrev">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>590</y>
-      <width>141</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>Prev</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="playVideoButton">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>540</y>
-      <width>221</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>Play Video</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBoxBall">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>170</y>
-      <width>231</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
-    </property>
-    <property name="text">
-     <string>Show Ball's position</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBoxPlayers">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>190</y>
-      <width>271</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
-    </property>
-    <property name="text">
-     <string>Show all players' position</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBoxOnePlayer">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>385</y>
-      <width>85</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="correctButton">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>324</y>
-      <width>141</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>Correct</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="incorrectButton">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>324</y>
-      <width>141</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 14pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>Incorrect</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="identifyAction">
-    <property name="geometry">
-     <rect>
-      <x>38</x>
-      <y>284</y>
-      <width>301</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 70 18pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54);
-text-decoration: underline;</string>
-    </property>
-    <property name="text">
-     <string>Identify Action:</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="generateButton">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>590</y>
-      <width>171</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-    </property>
-    <property name="text">
-     <string>Generate labels</string>
-    </property>
-   </widget>
+   </property>
+   <property name="text">
+    <string>Incorrect</string>
+   </property>
   </widget>
  </widget>
- <resources>
-  <include location="background.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
