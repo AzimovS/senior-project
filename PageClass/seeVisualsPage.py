@@ -7,8 +7,10 @@ from qtpy import QtCore
 
 import create_imagenet
 import train_features
+from PageClass import GlobalVariables
 from videoWidget import VideoWindow
 import pandas as pd
+import numpy as np
 
 
 class seeVisualsPage(QDialog):
@@ -18,14 +20,13 @@ class seeVisualsPage(QDialog):
         self.widget = widget
         if len(args) > 0:
             self.data_path = args[-1]
-            self.data = train_features.load_data(self.data_path)
-            self.len_data = len(self.data)
-            self.frames = self.data.index
-
+            # self.data = train_features.load_data(self.data_path)
+            self.list_of_valid_files = train_features.get_list_valid_files(self.data_path)
+            # print(self.list_of_valid_files)
+            self.cur_file = 0
             self.cur_frame = 0
             self.player_num = 0
             self.labels = {}
-
             self.set_frame()
 
         self.framePrev.clicked.connect(self.previous_frame)
@@ -131,7 +132,17 @@ class seeVisualsPage(QDialog):
             self.positions(pred, (0, 0, 255), draw, start_x, start_y)
         return frame
 
+    def load_file(self):
+        data = np.load(self.list_of_valid_files[self.cur_file])
+        dir_path_np = np.repeat(self.list_of_valid_files[self.cur_file], len(data)).reshape(-1, 1)
+        data = np.concatenate((data, dir_path_np), axis=1)
+        self.data = pd.DataFrame(data)
+        self.frames = self.data.index
+        self.len_data = len(self.data)
+
     def set_frame(self):
+        self.load_file()
+
         idx = self.frames[self.cur_frame]
         x = self.data.iloc[idx, :]
         file_path = x.iloc[-1]
@@ -181,32 +192,59 @@ class seeVisualsPage(QDialog):
         self.mainText.setText(text)
 
     def next_action(self):
-        prev = self.cur_frame
-        while self.data.iloc[self.cur_frame, 1] == self.data.iloc[prev, 1]:
-            self.cur_frame += 1
-            if self.len_data <= self.cur_frame:
-                self.cur_frame = 0
+        idx = self.frames[self.cur_frame]
+        prev = idx
+        while self.data.iloc[idx, 1] == self.data.iloc[prev, 1]:
+            idx += 1
+            if len(self.data) <= idx:
+                idx = 0
+                self.cur_file += 1
+                if len(self.list_of_valid_files) == self.cur_file:
+                    self.cur_file -= 1
+                    idx = prev
+                    msg = QMessageBox()
+                    msg.setIcon(QMessageBox.Information)
+                    msg.setText("This is the last file")
+                    msg.setWindowTitle("Info")
+                    retval = msg.exec_()
                 break
+        self.cur_frame = idx
         self.set_frame()
 
     def previous_acion(self):
-        prev = self.cur_frame
-        while self.data.iloc[self.cur_frame, 1] == self.data.iloc[prev, 1]:
-            self.cur_frame -= 1
-            if 0 > self.cur_frame:
-                self.cur_frame = self.len_data - 1
+        idx = self.frames[self.cur_frame]
+        prev = idx
+        while self.data.iloc[idx, 1] == self.data.iloc[prev, 1]:
+            idx -= 1
+            if 0 > idx:
+                idx = 0
+                self.cur_file -= 1
+                if 0 > self.cur_file:
+                    self.cur_file = 0
+                    msg = QMessageBox()
+                    msg.setIcon(QMessageBox.Information)
+                    msg.setText("This is the first file")
+                    msg.setWindowTitle("Info")
+                    retval = msg.exec_()
+                break
+        self.cur_frame = idx
         self.set_frame()
 
     def next_frame(self):
         self.cur_frame += 1
         if self.len_data == self.cur_frame:
             self.cur_frame = 0
+            self.cur_file += 1
+            if len(self.list_of_valid_files) == self.cur_file:
+                self.cur_file = 0
         self.set_frame()
 
     def previous_frame(self):
         self.cur_frame -= 1
         if self.cur_frame == -1:
-            self.cur_frame = self.len_data - 1
+            self.cur_frame = 0
+            if len(self.list_of_valid_files) <= self.cur_file:
+                self.cur_file = len(self.list_of_valid_files) - 1
         self.set_frame()
 
     def next_player(self):
@@ -222,14 +260,10 @@ class seeVisualsPage(QDialog):
         self.set_frame()
 
     def gotoUVFPage(self):
-        UVFPage = uploadVisualizationFilePage()
-        widget.addWidget(UVFPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        self.widget.setCurrentIndex(GlobalVariables.PAGE_TO_INDEX['uploadVisualizationFilePage'])
 
     def goBack(self):
-        gotoMainPage = WelcomePage()
-        widget.addWidget(gotoMainPage)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        self.widget.setCurrentIndex(GlobalVariables.PAGE_TO_INDEX['WelcomePage'])
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_I:

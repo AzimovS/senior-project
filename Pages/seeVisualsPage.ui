@@ -33,7 +33,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
+     <y>0</y>
      <width>271</width>
      <height>101</height>
     </rect>
@@ -65,7 +65,7 @@ Classification</string>
    <property name="geometry">
     <rect>
      <x>660</x>
-     <y>40</y>
+     <y>10</y>
      <width>201</width>
      <height>41</height>
     </rect>
@@ -108,8 +108,8 @@ text-decoration: underline;</string>
   <widget class="QCheckBox" name="checkBoxPlayers">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>186</y>
+     <x>560</x>
+     <y>190</y>
      <width>271</width>
      <height>21</height>
     </rect>
@@ -182,7 +182,7 @@ QPushButton:pressed{
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>36</y>
+     <y>10</y>
      <width>271</width>
      <height>71</height>
     </rect>
@@ -325,26 +325,6 @@ QPushButton:pressed{
     <string>Next</string>
    </property>
   </widget>
-  <widget class="QLabel" name="mainText">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>126</y>
-     <width>411</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 75 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)</string>
-   </property>
-   <property name="text">
-    <string>Frame number: 199
-Current Action: 21
-Attacking Team: 1
-Number of Detected Players #1: 10
-Number of Detected Players #2: 5</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="framePrev">
    <property name="geometry">
     <rect>
@@ -375,8 +355,8 @@ QPushButton:pressed{
   <widget class="QCheckBox" name="checkBoxBall">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>166</y>
+     <x>560</x>
+     <y>170</y>
      <width>231</width>
      <height>21</height>
     </rect>
@@ -528,6 +508,21 @@ QPushButton:pressed{
    </property>
    <property name="text">
     <string>Incorrect</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="mainText">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>110</y>
+     <width>371</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
    </property>
   </widget>
  </widget>

@@ -48,3 +48,13 @@ def load_data(dir_path):
     print(len(data))
     pd_data = pd.DataFrame(data)
     return pd_data
+
+
+def get_list_valid_files(dir_path):
+    list_of_files = []
+    all_files = os.listdir(dir_path)
+    for file in all_files:
+        if file.endswith(".npy") and (file[:-4] + '.mp4' in all_files or file[:-4] + '.avi' in all_files):
+            list_of_files.append(os.path.join(dir_path, file))
+    list_of_files.sort()
+    return list_of_files
