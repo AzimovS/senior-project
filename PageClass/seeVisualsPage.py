@@ -44,6 +44,7 @@ class seeVisualsPage(QDialog):
         self.correctButton.clicked.connect(self.label_action)
         self.incorrectButton.clicked.connect(self.label_action)
         self.generateButton.clicked.connect(self.generate_file)
+        self.statisticsButton.clicked.connect(self.show_stats)
 
         self.nextAction = QAction("Next Action", self)
         self.nextAction.setShortcut(QKeySequence(QtCore.Qt.Key_Up))
@@ -56,6 +57,32 @@ class seeVisualsPage(QDialog):
         self.video.move(600, 300)
         self.video.resize(640, 480)
         self.video.show()
+
+    def show_stats(self):
+        if len(self.labels) > 0:
+            total_actions = 0
+            correct_actions = 0
+            prev = None
+            for k, v in self.labels.items():
+                if prev != k[2]:
+                    prev = k[2]
+                    total_actions += 1
+                    if v == 1:
+                        correct_actions += 1
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText(f"The total number of frames is {len(self.labels)}\n "
+                        f"The total number of actions is {total_actions}\n"
+                        f"The number of correct actions {correct_actions}\n"
+                        f"The accuracy is {correct_actions / total_actions}")
+            msg.setWindowTitle("Info")
+            retval = msg.exec_()
+        else:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("There is no labels. Please click on correct/incorrect.")
+            msg.setWindowTitle("Info")
+            retval = msg.exec_()
 
     def generate_file(self):
         if len(self.labels) > 0:

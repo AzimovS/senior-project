@@ -525,6 +525,33 @@ QPushButton:pressed{
     </font>
    </property>
   </widget>
+  <widget class="QPushButton" name="statisticsButton">
+   <property name="geometry">
+    <rect>
+     <x>507</x>
+     <y>587</y>
+     <width>171</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
+   </property>
+   <property name="text">
+    <string>Statistics</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
