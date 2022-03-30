@@ -188,7 +188,7 @@ class seeVisualsPage(QDialog):
         text = "The filename: {}\nFrame number: {}\nCurrent Action: {}\n" \
                "Attacking Team: {}\nNumber of Detected Players #1: {}\n" \
                "Number of Detected Players #2: {}\n" \
-               "".format(x.iloc[-1].split('/')[-1], x.iloc[0], x.iloc[1], x.iloc[2], x.iloc[5], x.iloc[6])
+               "".format(x.iloc[-1].split('/')[-1], x.iloc[0], x.iloc[1], x.iloc[2], x.iloc[7], x.iloc[30])
         self.mainText.setText(text)
 
     def next_action(self, label=None):
