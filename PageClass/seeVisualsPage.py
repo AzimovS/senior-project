@@ -11,7 +11,7 @@ from PageClass import GlobalVariables
 from videoWidget import VideoWindow
 import pandas as pd
 import numpy as np
-
+import os
 
 class seeVisualsPage(QDialog):
     def __init__(self, widget, *args):
@@ -77,23 +77,22 @@ class seeVisualsPage(QDialog):
         idx = self.frames[self.cur_frame]
         x = self.data.iloc[idx, :]
         file_path = x.iloc[-1].split('/')[-1]
-        self.labels[self.frames[self.cur_frame]] = is_correct
-        iterated = self.cur_frame + 1
-        while self.data.iloc[self.frames[self.cur_frame], 1] == self.data.iloc[self.frames[iterated], 1]:
-            iterated += 1
-            if self.len_data <= iterated:
-                iterated = 0
-                break
-            self.labels[iterated - 1] = is_correct
-        iterated = self.cur_frame - 1
-        while self.data.iloc[self.frames[self.cur_frame], 1] == self.data.iloc[self.frames[iterated], 1]:
+        self.labels[(file_path, idx, self.data.iloc[idx, 1])] = is_correct
+
+        iterated = self.frames[self.cur_frame + 1]
+        prev_to_label = []
+        prev_to_label.append(iterated)
+        while self.data.iloc[idx, 1] == self.data.iloc[iterated, 1]:
             iterated -= 1
             if 0 > iterated:
                 iterated = self.len_data - 1
                 break
-            self.labels[iterated + 1] = is_correct
+            prev_to_label.append(iterated)
+
+        for frame in sorted(prev_to_label):
+            self.labels[(file_path, frame, self.data.iloc[frame, 1])] = is_correct
+        self.next_action(label=is_correct)
         print(self.labels)
-        self.next_action()
 
     def label_action(self):
         if self.sender().text() == "Correct":
@@ -151,8 +150,9 @@ class seeVisualsPage(QDialog):
         img_width, img_height = img.size
         img = self.draw_arrows(img, 580, 50, int(float(x.iloc[1])))
 
-        if self.cur_frame in self.labels:
-            if self.labels[self.cur_frame] == 1:
+        print((file_path.split('/')[-1], idx, str(self.data.iloc[idx, 1])))
+        if (file_path.split('/')[-1], idx, str(self.data.iloc[idx, 1])) in self.labels:
+            if self.labels[(file_path.split('/')[-1], idx, self.data.iloc[idx, 1])] == 1:
                 text = "correct"
                 color = (0, 255, 0)
             else:
@@ -191,10 +191,14 @@ class seeVisualsPage(QDialog):
                "".format(x.iloc[-1].split('/')[-1], x.iloc[0], x.iloc[1], x.iloc[2], x.iloc[5], x.iloc[6])
         self.mainText.setText(text)
 
-    def next_action(self):
+    def next_action(self, label=None):
         idx = self.frames[self.cur_frame]
+        x = self.data.iloc[idx, :]
+        file_path = x.iloc[-1].split('/')[-1]
         prev = idx
         while self.data.iloc[idx, 1] == self.data.iloc[prev, 1]:
+            if label is not None:
+                self.labels[(file_path, idx, self.data.iloc[idx, 1])] = label
             idx += 1
             if len(self.data) <= idx:
                 idx = 0
@@ -211,7 +215,7 @@ class seeVisualsPage(QDialog):
         self.cur_frame = idx
         self.set_frame()
 
-    def previous_acion(self):
+    def previous_acion(self, label=None):
         idx = self.frames[self.cur_frame]
         prev = idx
         while self.data.iloc[idx, 1] == self.data.iloc[prev, 1]:
