@@ -218,7 +218,6 @@ class seeVisualsPage(QDialog):
         self.next_action()
 
     def next_action(self, label=-1):
-        print(label)
         idx = self.frames[self.cur_frame]
         x = self.data.iloc[idx, :]
         file_path = x.iloc[-1].split('/')[-1]
