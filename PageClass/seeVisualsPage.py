@@ -31,7 +31,7 @@ class seeVisualsPage(QDialog):
 
         self.framePrev.clicked.connect(self.previous_frame)
         self.frameNext.clicked.connect(self.next_frame)
-        self.actionNext.clicked.connect(self.next_action)
+        self.actionNext.clicked.connect(self.button_next_action)
         self.actionPrev.clicked.connect(self.previous_acion)
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoUVFPage)
@@ -44,7 +44,6 @@ class seeVisualsPage(QDialog):
         self.correctButton.clicked.connect(self.label_action)
         self.incorrectButton.clicked.connect(self.label_action)
         self.generateButton.clicked.connect(self.generate_file)
-        self.statisticsButton.clicked.connect(self.show_stats)
 
         self.nextAction = QAction("Next Action", self)
         self.nextAction.setShortcut(QKeySequence(QtCore.Qt.Key_Up))
@@ -53,7 +52,10 @@ class seeVisualsPage(QDialog):
 
     def show_video(self):
         self.video = VideoWindow(self)
-        self.video.openFile(self.data.iloc[self.cur_frame, -1][:-3] + 'mp4')
+        if os.path.isfile(self.data.iloc[self.cur_frame, -1][:-3] + 'mp4'):
+            self.video.openFile(self.data.iloc[self.cur_frame, -1][:-3] + 'mp4')
+        else:
+            self.video.openFile(self.data.iloc[self.cur_frame, -1][:-3] + 'avi')
         self.video.move(600, 300)
         self.video.resize(640, 480)
         self.video.show()
@@ -69,20 +71,13 @@ class seeVisualsPage(QDialog):
                     total_actions += 1
                     if v == 1:
                         correct_actions += 1
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText(f"The total number of frames is {len(self.labels)}\n "
-                        f"The total number of actions is {total_actions}\n"
-                        f"The number of correct actions {correct_actions}\n"
-                        f"The accuracy is {correct_actions / total_actions}")
-            msg.setWindowTitle("Info")
-            retval = msg.exec_()
+            resText = f"The total number of frames is {len(self.labels)}\n " + \
+                        f"The total number of actions is {total_actions}\n" + \
+                        f"The number of correct actions {correct_actions}\n" + \
+                        f"The accuracy is {correct_actions / total_actions}"
         else:
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("There is no labels. Please click on correct/incorrect.")
-            msg.setWindowTitle("Info")
-            retval = msg.exec_()
+            resText = f"Results will be shown here"
+        self.resultsText.setText(resText)
 
     def generate_file(self):
         if len(self.labels) > 0:
@@ -217,14 +212,19 @@ class seeVisualsPage(QDialog):
                "Number of Detected Players #2: {}\n" \
                "".format(x.iloc[-1].split('/')[-1], x.iloc[0], x.iloc[1], x.iloc[2], x.iloc[7], x.iloc[30])
         self.mainText.setText(text)
+        self.show_stats()
 
-    def next_action(self, label=None):
+    def button_next_action(self):
+        self.next_action()
+
+    def next_action(self, label=-1):
+        print(label)
         idx = self.frames[self.cur_frame]
         x = self.data.iloc[idx, :]
         file_path = x.iloc[-1].split('/')[-1]
         prev = idx
         while self.data.iloc[idx, 1] == self.data.iloc[prev, 1]:
-            if label is not None:
+            if label != -1:
                 self.labels[(file_path, idx, self.data.iloc[idx, 1])] = label
             idx += 1
             if len(self.data) <= idx:
