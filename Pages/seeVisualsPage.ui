@@ -460,7 +460,8 @@ QPushButton:hover{
 }
 QPushButton:pressed{
 	background-color: rgb(54, 54, 54);
-}</string>
+}
+</string>
    </property>
    <property name="text">
     <string>Prev</string>

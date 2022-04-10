@@ -30,19 +30,35 @@ class seeVisualsPage(QDialog):
             self.set_frame()
 
         self.framePrev.clicked.connect(self.previous_frame)
+        self.framePrev.setToolTip('Key: J')
+
         self.frameNext.clicked.connect(self.next_frame)
         self.actionNext.clicked.connect(self.button_next_action)
+        self.frameNext.setToolTip('Key: L')
+
+        self.actionNext.clicked.connect(self.next_action)
+        self.actionNext.setToolTip('Key: I')
+
         self.actionPrev.clicked.connect(self.previous_acion)
+        self.actionPrev.setToolTip('Key: K')
+
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoUVFPage)
+
         self.playVideoButton.clicked.connect(self.show_video)
+        self.playVideoButton.setToolTip('Key: V')
+
         self.checkBoxBall.clicked.connect(self.set_frame)
         self.checkBoxPlayers.clicked.connect(self.set_frame)
         self.checkBoxOnePlayer.clicked.connect(self.set_frame)
         self.playerPrevious.clicked.connect(self.previous_player)
         self.playerNext.clicked.connect(self.next_player)
+
         self.correctButton.clicked.connect(self.label_action)
+        self.correctButton.setToolTip('Key: C')
         self.incorrectButton.clicked.connect(self.label_action)
+        self.incorrectButton.setToolTip('Key: X')
+
         self.generateButton.clicked.connect(self.generate_file)
 
         self.nextAction = QAction("Next Action", self)
