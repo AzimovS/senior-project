@@ -71,7 +71,7 @@ class seeVisualsPage(QDialog):
                     total_actions += 1
                     if v == 1:
                         correct_actions += 1
-            resText = f"The total number of frames is {len(self.labels)}\n " + \
+            resText = f"The total number of frames is {len(self.labels)}\n" + \
                         f"The total number of actions is {total_actions}\n" + \
                         f"The number of correct actions {correct_actions}\n" + \
                         f"The accuracy is {correct_actions / total_actions}"
@@ -203,8 +203,8 @@ class seeVisualsPage(QDialog):
             if player_x != 0 or player_y != 0:
                 draw.rectangle((player_x - 20, player_y - 40, player_x, player_y), outline=(255, 255, 255),
                            width=2)
-        img = ImageQt(img)
-        self.pixmap = QPixmap.fromImage(img)
+        img.save('show_img.jpg')
+        self.pixmap = QPixmap('show_img.jpg')
         # self.pixmap = self.pixmap.scaled(600, 337, QtCore.Qt.KeepAspectRatio)
         self.image.setPixmap(self.pixmap)
         text = "The filename: {}\nFrame number: {}\nCurrent Action: {}\n" \
