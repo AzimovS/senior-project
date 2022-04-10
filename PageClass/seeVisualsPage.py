@@ -83,17 +83,6 @@ class seeVisualsPage(QDialog):
         if len(self.labels) > 0:
             df = pd.DataFrame.from_dict(self.labels, orient='index')
             df.to_csv('labels.csv')
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("The file was saved in the following path: " + os.getcwd() + '/labels.csv')
-            msg.setWindowTitle("Info")
-            retval = msg.exec_()
-        else:
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("There is no labels. Please click on correct/incorrect.")
-            msg.setWindowTitle("Info")
-            retval = msg.exec_()
 
     def set_label(self, is_correct):
         idx = self.frames[self.cur_frame]
@@ -115,6 +104,7 @@ class seeVisualsPage(QDialog):
             self.labels[(file_path, frame, self.data.iloc[frame, 1])] = is_correct
         self.next_action(label=is_correct)
         print(self.labels)
+        self.generate_file()
 
     def label_action(self):
         if self.sender().text() == "Correct":
