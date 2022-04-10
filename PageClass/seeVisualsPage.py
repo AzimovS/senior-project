@@ -105,11 +105,11 @@ class seeVisualsPage(QDialog):
         prev_to_label = []
         prev_to_label.append(iterated)
         while self.data.iloc[idx, 1] == self.data.iloc[iterated, 1]:
+            prev_to_label.append(iterated)
             iterated -= 1
             if 0 > iterated:
                 iterated = self.len_data - 1
                 break
-            prev_to_label.append(iterated)
 
         for frame in sorted(prev_to_label):
             self.labels[(file_path, frame, self.data.iloc[frame, 1])] = is_correct
