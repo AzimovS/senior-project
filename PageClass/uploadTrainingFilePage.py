@@ -13,14 +13,13 @@ class uploadTrainingFilePage(QDialog):
         super(uploadTrainingFilePage, self).__init__()
         loadUi("Pages/uploadTrainingFilePage.ui", self)
         self.widget = widget
-        self.lineEdit.setText('/home/azimov/Desktop/senior-project/data')
         self.FACButton.clicked.connect(self.goBack)
         self.browseButton.clicked.connect(self.browsefiles)
         self.byPictureButton.clicked.connect(self.gotoTrainingByPicturePage)
         self.byFeatureButton.clicked.connect(self.gotoTrainingByFeaturePage)
 
     def browsefiles(self):
-        current_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+        current_dir = os.path.normpath(os.getcwd())
         fname = QFileDialog.getExistingDirectory(self, 'Select Directory', current_dir)
         self.lineEdit.setText(fname)
 

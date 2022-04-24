@@ -11,13 +11,14 @@ class uploadVisualizationFilePage(QDialog):
         super(uploadVisualizationFilePage, self).__init__()
         loadUi("Pages/uploadVisualizationFilePage.ui", self)
         self.widget = widget
-        self.lineEdit.setText('/home/azimov/Desktop/senior-project/check_new_data')
         self.FACButton.clicked.connect(self.goBack)
         self.browseButton.clicked.connect(self.browsefiles)
         self.nextButton.clicked.connect(self.gotoSeeVisualsPage)
 
     def browsefiles(self):
-        current_dir = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+        # selected_file_path = QFileDialog.getOpenFileName(self, 'Open file', os.getcwd())[0]
+        # self.lineEdit.setText(selected_file_path)
+        current_dir = os.path.normpath(os.getcwd())
         fname = QFileDialog.getExistingDirectory(self, 'Select Directory', current_dir)
         self.lineEdit.setText(fname)
 
