@@ -219,7 +219,7 @@ QPushButton:pressed{
 }</string>
    </property>
    <property name="text">
-    <string>Next</string>
+    <string>Next (L)</string>
    </property>
   </widget>
   <widget class="QPushButton" name="actionNext">
@@ -246,7 +246,7 @@ QPushButton:pressed{
 }</string>
    </property>
    <property name="text">
-    <string>Next</string>
+    <string>Next (I)</string>
    </property>
   </widget>
   <widget class="QLabel" name="image">
@@ -349,7 +349,7 @@ QPushButton:pressed{
 }</string>
    </property>
    <property name="text">
-    <string>Prev</string>
+    <string>Prev (J)</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="checkBoxBall">
@@ -419,7 +419,7 @@ QPushButton:pressed{
 }</string>
    </property>
    <property name="text">
-    <string>Correct</string>
+    <string>Correct (C)</string>
    </property>
   </widget>
   <widget class="QLabel" name="frameText">
@@ -464,7 +464,7 @@ QPushButton:pressed{
 </string>
    </property>
    <property name="text">
-    <string>Prev</string>
+    <string>Prev (K)</string>
    </property>
   </widget>
   <widget class="QLabel" name="identifyAction">
@@ -508,7 +508,7 @@ QPushButton:pressed{
 }</string>
    </property>
    <property name="text">
-    <string>Incorrect</string>
+    <string>Incorrect (X)</string>
    </property>
   </widget>
   <widget class="QTextEdit" name="mainText">
