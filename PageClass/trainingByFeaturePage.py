@@ -30,6 +30,9 @@ class trainingByFeaturePage(QDialog):
         self.predictButton.clicked.connect(self.train)
         self.visualizeButton.clicked.connect(self.visualize)
 
+    def set_data(self, data):
+        self.data_path = data
+
     def goBack(self):
         self.widget.setCurrentIndex(GlobalVariables.PAGE_TO_INDEX['WelcomePage'])
 
