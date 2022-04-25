@@ -3,6 +3,8 @@ from PyQt5.uic import loadUi
 
 import plot_graph
 import resnet_train
+import densenet_train
+import vgg_train
 from PageClass import GlobalVariables
 
 
@@ -15,16 +17,18 @@ class trainingByPicturePage(QDialog):
             self.data_path = args[-1]
 
         self.widget = widget
-        self.firstParameterText.hide()
-        self.firstParameterEdit.hide()
-        self.secondParameterText.hide()
-        self.secondParameterEdit.hide()
-        self.thirdParameterText.hide()
-        self.thirdParameterEdit.hide()
+        # self.firstParameterText.hide()
+        # self.firstParameterEdit.hide()
+        # self.secondParameterText.hide()
+        # self.secondParameterEdit.hide()
+        # self.thirdParameterText.hide()
+        # self.thirdParameterEdit.hide()
 
         self.FACButton.clicked.connect(self.goBack)
         self.goBackButton.clicked.connect(self.gotoUTFPage)
         self.resnetButton.clicked.connect(self.resnetPrepare)
+        self.densenetButton.clicked.connect(self.densenetPrepare)
+        self.vggButton.clicked.connect(self.vggPrepare)
         self.trainButton.clicked.connect(self.trainResnet)
         #self.decisionTreeButton.clicked.connect(self.)
         #self.predictButton.clicked.connect(self.)
@@ -72,21 +76,20 @@ class trainingByPicturePage(QDialog):
 
     def resnetPrepare(self):
         self.addBorders(self.resnetButton)
-        self.removeBorders(self.somethingButton)
+        self.removeBorders(self.densenetButton)
+        self.removeBorders(self.vggButton)
 
-        self.firstParameterText.show()
-        self.firstParameterEdit.show()
-        self.secondParameterText.show()
-        self.secondParameterEdit.show()
-        self.thirdParameterText.show()
-        self.thirdParameterEdit.show()
+    def densenetPrepare(self):
+        self.addBorders(self.densenetButton)
+        self.removeBorders(self.vggButton)
+        self.removeBorders(self.resnetButton)
 
-    def trainResnet(self):
-        history, model = resnet_train.train(self.data_path, int(self.thirdParameterEdit.text()),
-                                            float(self.firstParameterEdit.text()),
-                                            float(self.secondParameterEdit.text()))
+    def vggPrepare(self):
+        self.addBorders(self.vggButton)
+        self.removeBorders(self.densenetButton)
+        self.removeBorders(self.resnetButton)
 
-        print(history)
+    def show_history(self, history):
         train_loss = [x['train_loss'] for x in history]
         val_loss = [x['val_loss'] for x in history]
         val_acc = [x['val_acc'] for x in history]
@@ -98,3 +101,24 @@ class trainingByPicturePage(QDialog):
         self.graph_acc = plot_graph.GraphWindow(self, val_acc=val_acc)
         self.graph_acc.move(1450, 500)
         self.graph_acc.show()
+
+    def trainResnet(self):
+        history, model = resnet_train.train(self.data_path, int(self.thirdParameterEdit.text()),
+                                            float(self.firstParameterEdit.text()),
+                                            float(self.secondParameterEdit.text()))
+
+        self.show_history(history)
+
+    def trainDensenet(self):
+        history, model = densenet_train.train(self.data_path, int(self.thirdParameterEdit.text()),
+                                            float(self.firstParameterEdit.text()),
+                                            float(self.secondParameterEdit.text()))
+
+        self.show_history(history)
+
+    def trainVGG(self):
+        history, model = vgg_train.train(self.data_path, int(self.thirdParameterEdit.text()),
+                                            float(self.firstParameterEdit.text()),
+                                            float(self.secondParameterEdit.text()))
+
+        self.show_history((history))

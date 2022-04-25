@@ -97,7 +97,7 @@ text-decoration: underline;</string>
   <widget class="QPushButton" name="resnetButton">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>190</x>
      <y>300</y>
      <width>141</width>
      <height>51</height>
@@ -121,10 +121,10 @@ QPushButton:pressed{
     <string>ResNet</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="somethingButton">
+  <widget class="QPushButton" name="densenetButton">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>340</x>
      <y>300</y>
      <width>141</width>
      <height>51</height>
@@ -145,7 +145,7 @@ QPushButton:pressed{
 }</string>
    </property>
    <property name="text">
-    <string>SomethingNet</string>
+    <string>DenseNet</string>
    </property>
   </widget>
   <widget class="QPushButton" name="trainButton">
@@ -263,6 +263,33 @@ QPushButton:pressed{
    </property>
    <property name="text">
     <string>GoBack</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="vggButton">
+   <property name="geometry">
+    <rect>
+     <x>487</x>
+     <y>300</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 12pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: rgb(54, 54, 54);
+}</string>
+   </property>
+   <property name="text">
+    <string>VGG</string>
    </property>
   </widget>
  </widget>
