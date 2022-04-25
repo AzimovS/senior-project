@@ -74,8 +74,8 @@ class visualizeFeaturePage(QDialog):
         self.predictionText.setText("Predicted action: " + str(int(float(self.clf.predict(x)[0]))))
         img = self.draw_arrows(img, 580, 50, int(float(y[self.cur_frame])),
                                int(float(self.clf.predict(x)[0])))
-        img = ImageQt(img)
-        self.pixmap = QPixmap.fromImage(img)
+        img.save('show_img.jpg')
+        self.pixmap = QPixmap('show_img.jpg')
         # self.pixmap = self.pixmap.scaled(600, 337, QtCore.Qt.KeepAspectRatio)
         self.image.setPixmap(self.pixmap)
 

@@ -34,7 +34,7 @@ def load_data(dir_path):
     print(dir_path)
     for file in os.listdir(dir_path):
         print(file)
-        if file.endswith("LogoView.npy"):
+        if file.endswith(".npy") and 'coordinates' not in file and 'velocity' not in file:
             if data is None:
                 data = np.load(dir_path + '/' + file)
                 print(len(data))
