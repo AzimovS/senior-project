@@ -43,7 +43,7 @@ class seeVisualsPage(QDialog):
         self.actionPrev.setToolTip('Key: K')
 
         self.FACButton.clicked.connect(self.goBack)
-        self.goBackButton.clicked.connect(self.gotoUVFPage)
+        # self.goBackButton.clicked.connect(self.gotoUVFPage)
 
         self.playVideoButton.clicked.connect(self.show_video)
         self.playVideoButton.setToolTip('Key: V')

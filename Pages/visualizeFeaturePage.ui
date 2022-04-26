@@ -112,9 +112,18 @@ color: black;
     <rect>
      <x>40</x>
      <y>20</y>
-     <width>271</width>
-     <height>101</height>
+     <width>171</width>
+     <height>51</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>11</pointsize>
+     <weight>8</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
@@ -123,7 +132,7 @@ color: black;
     <string notr="true">QPushButton {
 	border-radius: 20px;
 	background-color: rgb(224, 224, 224);
-	font: 70 22pt &quot;Century Gothic&quot;; 
+	font: 70 11pt &quot;Century Gothic&quot;; 
    color: black;
 }
 
@@ -135,8 +144,7 @@ QPushButton:pressed{
 }</string>
    </property>
    <property name="text">
-    <string>Football Action
-Classification</string>
+    <string>Go to main page</string>
    </property>
   </widget>
   <widget class="QPushButton" name="previousButton">

@@ -25,7 +25,7 @@ class trainingByPicturePage(QDialog):
         # self.thirdParameterEdit.hide()
 
         self.FACButton.clicked.connect(self.goBack)
-        self.goBackButton.clicked.connect(self.gotoUTFPage)
+        # self.goBackButton.clicked.connect(self.gotoUTFPage)
         self.resnetButton.clicked.connect(self.resnetPrepare)
         self.densenetButton.clicked.connect(self.densenetPrepare)
         self.vggButton.clicked.connect(self.vggPrepare)

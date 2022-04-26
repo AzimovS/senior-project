@@ -29,38 +29,6 @@
     <pixmap>../Media/Des2.png</pixmap>
    </property>
   </widget>
-  <widget class="QPushButton" name="FACButton">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>271</width>
-     <height>101</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 22pt &quot;Century Gothic&quot;; 
-   color: black;
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: black;
-}</string>
-   </property>
-   <property name="text">
-    <string>Football Action
-Classification</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="howItWorksHeadText">
    <property name="geometry">
     <rect>
@@ -124,7 +92,7 @@ QPushButton:pressed{
   <widget class="QPushButton" name="densenetButton">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>381</x>
      <y>300</y>
      <width>141</width>
      <height>51</height>
@@ -238,37 +206,10 @@ QPushButton:pressed{
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="goBackButton">
-   <property name="geometry">
-    <rect>
-     <x>660</x>
-     <y>40</y>
-     <width>201</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 13pt &quot;Century Gothic&quot;; color: rgb(54, 54, 54)
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: rgb(54, 54, 54);
-}</string>
-   </property>
-   <property name="text">
-    <string>GoBack</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="vggButton">
    <property name="geometry">
     <rect>
-     <x>487</x>
+     <x>553</x>
      <y>300</y>
      <width>141</width>
      <height>51</height>
@@ -290,6 +231,46 @@ QPushButton:pressed{
    </property>
    <property name="text">
     <string>VGG</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="FACButton">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>171</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>11</pointsize>
+     <weight>8</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 11pt &quot;Century Gothic&quot;; 
+   color: black;
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: black;
+}</string>
+   </property>
+   <property name="text">
+    <string>Go to main page</string>
    </property>
   </widget>
  </widget>

@@ -29,43 +29,11 @@
     <pixmap>../Media/Des2.png</pixmap>
    </property>
   </widget>
-  <widget class="QPushButton" name="FACButton">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>20</y>
-     <width>271</width>
-     <height>101</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 22pt &quot;Century Gothic&quot;; 
-   color: black;
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: black;
-}</string>
-   </property>
-   <property name="text">
-    <string>Football Action
-Classification</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="howItWorksHeadText">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>150</y>
+     <y>128</y>
      <width>431</width>
      <height>41</height>
     </rect>
@@ -84,7 +52,7 @@ text-decoration: underline;</string>
     <rect>
      <x>20</x>
      <y>200</y>
-     <width>371</width>
+     <width>521</width>
      <height>51</height>
     </rect>
    </property>
@@ -93,7 +61,7 @@ text-decoration: underline;</string>
 color: black;</string>
    </property>
    <property name="text">
-    <string>Some stuff to know before analysis</string>
+    <string>Select the folder with annotated data and videos</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
@@ -161,6 +129,46 @@ QPushButton:pressed{
    </property>
    <property name="text">
     <string>NEXT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="FACButton">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>50</y>
+     <width>171</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>11</pointsize>
+     <weight>8</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 11pt &quot;Century Gothic&quot;; 
+   color: black;
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: black;
+}</string>
+   </property>
+   <property name="text">
+    <string>Go to main page</string>
    </property>
   </widget>
  </widget>

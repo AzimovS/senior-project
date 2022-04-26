@@ -72,7 +72,7 @@ def create_imagenet_dataset(dir_path):
 
     first_image = True
     for file in os.listdir(dir_path):
-        if file.endswith("LogoView.npy"):
+        if file.endswith(".npy") and 'coordinates' not in file and 'velocity' not in file:
             data = np.load(dir_path + '/' + file)
             prev_frame = None
             prev_action = None

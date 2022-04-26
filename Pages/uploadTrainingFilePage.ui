@@ -29,43 +29,11 @@
     <pixmap>../Media/Des2.png</pixmap>
    </property>
   </widget>
-  <widget class="QPushButton" name="FACButton">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>271</width>
-     <height>101</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-	border-radius: 20px;
-	background-color: rgb(224, 224, 224);
-	font: 70 22pt &quot;Century Gothic&quot;; 
-   color: black;
-}
-
-QPushButton:hover{
-	background-color: rgb(73, 96, 96);
-}
-QPushButton:pressed{
-	background-color: black;
-}</string>
-   </property>
-   <property name="text">
-    <string>Football Action
-Classification</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="howItWorksHeadText">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>150</y>
+     <y>117</y>
      <width>431</width>
      <height>41</height>
     </rect>
@@ -76,24 +44,35 @@ color: black;
 text-decoration: underline;</string>
    </property>
    <property name="text">
-    <string>Upload File to Visualize Actions</string>
+    <string>Upload File to Training</string>
    </property>
   </widget>
   <widget class="QLabel" name="howItWorksText">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>200</y>
-     <width>371</width>
-     <height>51</height>
+     <y>172</y>
+     <width>871</width>
+     <height>111</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>11</pointsize>
+     <weight>8</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font: 70 12pt &quot;Century Gothic&quot;; 
+    <string notr="true">font: 70 11pt &quot;Century Gothic&quot;; 
 color: black;</string>
    </property>
    <property name="text">
-    <string>Some stuff to know before analysis</string>
+    <string>If you want to test ML algorithms, then select the folder with annotated data, and click &quot;By Feature&quot; button. 
+
+If you want to test DL models, then select the folder with annotated and videos, and click &quot;By Picture&quot; button</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
@@ -189,6 +168,46 @@ QPushButton:pressed{
    <property name="text">
     <string>BY
 FEATURE</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="FACButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>40</y>
+     <width>171</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Century Gothic</family>
+     <pointsize>11</pointsize>
+     <weight>8</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border-radius: 20px;
+	background-color: rgb(224, 224, 224);
+	font: 70 11pt &quot;Century Gothic&quot;; 
+   color: black;
+}
+
+QPushButton:hover{
+	background-color: rgb(73, 96, 96);
+}
+QPushButton:pressed{
+	background-color: black;
+}</string>
+   </property>
+   <property name="text">
+    <string>Go to main page</string>
    </property>
   </widget>
  </widget>

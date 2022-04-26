@@ -23,7 +23,7 @@ class trainingByFeaturePage(QDialog):
 
 
         self.FACButton.clicked.connect(self.goBack)
-        self.goBackButton.clicked.connect(self.gotoUTFPage)
+        # self.goBackButton.clicked.connect(self.gotoUTFPage)
         self.extraTreeButton.clicked.connect(self.extraTreeTrainPrepare)
         self.kNeighborsButton.clicked.connect(self.kNeighborsPrepare)
         self.decisionTreeButton.clicked.connect(self.decisionTreePrepare)
