@@ -13,15 +13,6 @@ from PageClass import GlobalVariables
 from PageClass.uploadVisualizationFilePage import uploadVisualizationFilePage
 from PageClass.seeVisualsPage import seeVisualsPage
 
-from PIL import Image, ImageDraw, ImageFont
-from PIL.ImageQt import ImageQt
-import os
-import pandas as pd
-import train_features
-import create_imagenet
-import resnet_train
-import plot_graph
-
 class WelcomePage(QDialog):
     def __init__(self):
         super(WelcomePage, self).__init__()
