@@ -10,14 +10,8 @@ from videoWidget import VideoWindow
 from PageClass.AboutProjectPage import AboutProjectPage
 from PageClass.HowItWorksPage import HowItWorksPage
 from PageClass import GlobalVariables
-from PageClass.trainingByFeaturePage import trainingByFeaturePage
-from PageClass.uploadTrainingFilePage import uploadTrainingFilePage
-from PageClass.ImageFolderPreparePage import ImageFolderPreparePage
-from PageClass.trainingByPicturePage import trainingByPicturePage
-from PageClass.visualizeFeaturePage import visualizeFeaturePage
 from PageClass.uploadVisualizationFilePage import uploadVisualizationFilePage
 from PageClass.seeVisualsPage import seeVisualsPage
-from PageClass.predictPage import predictPage
 
 from PIL import Image, ImageDraw, ImageFont
 from PIL.ImageQt import ImageQt
@@ -35,9 +29,7 @@ class WelcomePage(QDialog):
         # self.setGeometry(0, 0, 650, 900)
         self.aboutProjectButton.clicked.connect(self.gotoATPPage)  #go to About The Project page
         self.howItWorksButton.clicked.connect(self.gotoHIWPage)  #go to How It Works Page
-        self.startTrainingButton.clicked.connect(self.gotoUTFPage)  #go to Upload Training File Page
         self.visualizationButton.clicked.connect(self.gotoUVFPage)  #go to Upload Visualization File Page
-        self.predictionButton.clicked.connect(self.gotoPredictPage)  #go to prediction page
 
     #when about the project button is pressed
     def gotoATPPage(self):
@@ -66,26 +58,14 @@ widget = QtWidgets.QStackedWidget()
 welcome = WelcomePage()
 about = AboutProjectPage(widget)
 howItWorks = HowItWorksPage(widget)
-uploadTrainingFile = uploadTrainingFilePage(widget)
-trainingByFeature = trainingByFeaturePage(widget)
-imageFolder = ImageFolderPreparePage(widget)
-trainingByPicture = trainingByPicturePage(widget)
-visualizeFeature = visualizeFeaturePage(widget)
 uploadVisualizationFile = uploadVisualizationFilePage(widget)
 seeVisuals = seeVisualsPage(widget)
-predictP = predictPage(widget)
 
 widget.addWidget(welcome)
 widget.addWidget(about)
 widget.addWidget(howItWorks)
-widget.addWidget(uploadTrainingFile)
 widget.addWidget(uploadVisualizationFile)
-widget.addWidget(predictP)
 widget.addWidget(seeVisuals)
-widget.addWidget(trainingByFeature)
-widget.addWidget(imageFolder)
-widget.addWidget(trainingByPicture)
-widget.addWidget(visualizeFeature)
 
 widget.move(500, 250)
 widget.setFixedHeight(650)
