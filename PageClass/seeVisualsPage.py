@@ -123,7 +123,8 @@ class seeVisualsPage(QDialog):
         self.generate_file()
 
     def label_action(self):
-        if self.sender().text() == "Correct":
+        print(self.sender().text())
+        if self.sender().text().startswith("Correct"):
             self.set_label(1)
         else:
             self.set_label(0)
